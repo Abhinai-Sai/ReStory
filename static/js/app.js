@@ -169,8 +169,12 @@
         if (files.length > 0) handleFile(files[0]);
     });
 
-    // Click-to-browse
-    dropZone.addEventListener('click', () => fileInput.click());
+    // Click-to-browse (prevent double-triggering on mobile touch)
+    dropZone.addEventListener('click', (e) => {
+        if (e.target !== fileInput) {
+            fileInput.click();
+        }
+    });
     dropZone.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
     });
