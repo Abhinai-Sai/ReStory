@@ -3,123 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReStory — AI Art Restoration & Exhibition</title>
-    <!-- Google Fonts: Giant Condensed Display, Elegant Serif & Clean Sans -->
+    <title>ReStory — AI Art Restoration Studio</title>
+    <!-- Google Fonts: Plus Jakarta Sans (Bold Modern Display), Inter (Clean Body), JetBrains Mono (Tech Specs) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <!-- Main Exhibition Canvas Wrap -->
-    <div class="gallery-wrapper">
-        <!-- Gallery Header Navigation -->
-        <header class="gallery-header">
+    <!-- Main Studio Wrapper -->
+    <div class="studio-wrapper">
+        
+        <!-- Header Navigation Bar -->
+        <header class="studio-header">
             <nav class="nav-container">
                 <div class="nav-left">
-                    <a href="#hero-section" class="nav-link">Home</a>
-                    <a href="#upload-section" class="nav-link">Studio</a>
-                    <a href="#models-info" class="nav-link">Models</a>
+                    <a href="#hero-section" class="brand-logo">
+                        <div class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                                <path d="M3 3v5h5"/>
+                                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                                <path d="M16 16h5v5"/>
+                            </svg>
+                        </div>
+                        <span class="brand-name">ReStory</span>
+                    </a>
                 </div>
                 
                 <div class="nav-center">
-                    <div class="gallery-logo-emblem" title="ReStory Art Conservation">
-                        <svg viewBox="0 0 60 70" width="44" height="52" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M30 4 C15 4, 4 15, 4 30 L4 55 C4 63, 15 66, 30 66 C45 66, 56 63, 56 55 L56 30 C56 15, 45 4, 30 4 Z" fill="#f4f1ea" stroke="#121214" stroke-width="2"/>
-                            <circle cx="30" cy="26" r="12" stroke="#121214" stroke-width="1.5"/>
-                            <path d="M18 52 C18 42, 23 38, 30 38 C37 38, 42 42, 42 52" stroke="#121214" stroke-width="1.5"/>
-                            <text x="30" y="62" font-family="sans-serif" font-size="6" font-weight="bold" text-anchor="middle" fill="#121214">RESTORY</text>
-                        </svg>
+                    <div class="nav-links-group">
+                        <a href="#hero-section" class="nav-link active">Home</a>
+                        <a href="#upload-section" class="nav-link">Studio</a>
+                        <a href="#samples-anchor" class="nav-link">Gallery Specimens</a>
                     </div>
                 </div>
 
                 <div class="nav-right">
-                    <a href="#upload-section" class="nav-link">Exhibition</a>
-                    <a href="#footer-section" class="nav-link">About</a>
-                    <span class="nav-status-badge">
-                        <span class="status-dot-red">●</span> ONLINE
+                    <span class="status-pill">
+                        <span class="status-dot"></span> Studio Engine Ready
                     </span>
                 </div>
             </nav>
         </header>
 
-        <!-- Hero Section with Floating Artwork Collage -->
-        <section id="hero-section" class="gallery-hero">
-            <div class="hero-canvas">
-                <!-- Floating Artworks -->
-                <div class="floating-art float-top-left" title="Impressionist Garden">
-                    <img src="https://picsum.photos/seed/monet-garden/240/280" alt="Impressionist artwork" />
-                </div>
-                
-                <div class="floating-art float-mid-left" title="Historical Town Square">
-                    <img src="https://picsum.photos/seed/archival-town/260/200" alt="Historical landscape artwork" />
-                </div>
-                
-                <div class="floating-art float-bot-left" title="Expressionist Masterpiece">
-                    <img src="https://picsum.photos/seed/expressionist-canvas/220/220" alt="Expressionist artwork" />
-                </div>
+        <!-- Hero Section -->
+        <section id="hero-section" class="hero-section">
+            <!-- Ambient Light Background Effect -->
+            <div class="hero-ambient-glow"></div>
+            
+            <div class="hero-container">
+                <!-- Floating Artworks Collage -->
+                <div class="floating-art-wrapper">
+                    <div class="floating-art art-pos-1">
+                        <img src="https://picsum.photos/seed/monet-garden/260/320" alt="Impressionist canvas specimen" />
+                    </div>
+                    
+                    <div class="floating-art art-pos-2">
+                        <img src="https://picsum.photos/seed/baroque-court/280/240" alt="Baroque portrait specimen" />
+                    </div>
+                    
+                    <div class="floating-art art-pos-3">
+                        <img src="https://picsum.photos/seed/dutch-flowers/320/240" alt="Still life oil painting specimen" />
+                        <div class="art-tag-badge">
+                            <span class="badge-dot"></span> Real-ESRGAN &amp; GFPGAN 4X
+                        </div>
+                    </div>
 
-                <div class="floating-art float-top-right" title="Baroque Royal Portrait">
-                    <img src="https://picsum.photos/seed/baroque-court/260/220" alt="Baroque classical artwork" />
-                </div>
-
-                <div class="floating-art float-mid-right" title="Garland of Fruit and Flowers">
-                    <img src="https://picsum.photos/seed/dutch-flowers/300/220" alt="Dutch floral still life artwork" />
-                    <div class="floating-glass-tag">
-                        <span class="tag-red-dot">●</span> Real-ESRGAN &amp; GFPGAN
+                    <div class="floating-art art-pos-4">
+                        <img src="/static/samples/sample_art.jpg" alt="Vintage portrait specimen" />
                     </div>
                 </div>
 
-                <div class="floating-art float-bot-right" title="Archival Gathering">
-                    <img src="https://picsum.photos/seed/historical-crowd/280/200" alt="Historical oil painting" />
-                </div>
-
-                <div class="floating-art float-bot-center" title="Vintage Portrait Specimen">
-                    <img src="/static/samples/sample_art.jpg" alt="Vintage degraded portrait specimen" />
-                </div>
-
-                <!-- Central Giant Condensed Impact Title -->
-                <div class="hero-title-container">
-                    <h1 class="giant-exhibition-title">
-                        <span class="title-line">ARTWORK</span>
-                        <span class="title-line">RESTORATION</span>
-                    </h1>
+                <!-- Central Hero Title & Motto -->
+                <div class="hero-content">
+                    <div class="hero-eyebrow">
+                        <span class="eyebrow-sparkle">✦</span> AI NEURAL CONSERVATION
+                    </div>
                     
-                    <p class="hero-exhibition-subtext">
-                        AI art gallery &amp; neural restoration studio — enhancing historical paintings and damaged photographs with deep super-resolution.
+                    <h1 class="hero-title">ReStory</h1>
+                    
+                    <p class="hero-motto">"We believe every image is an art"</p>
+                    
+                    <p class="hero-description">
+                        Breath-taking deep restoration studio for degraded photographs, classical oil paintings, and historical artwork using high-fidelity super-resolution and facial reconstruction.
                     </p>
                     
-                    <div class="hero-cta-bar">
-                        <a href="#upload-section" class="btn btn-dark-pill">Start Restoration Studio &rarr;</a>
+                    <div class="hero-actions">
+                        <a href="#upload-section" class="btn btn-primary-pill">
+                            <span>Open Restoration Studio</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#samples-anchor" class="btn btn-secondary-pill">Try Sample Specimen</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Main Studio Area -->
-        <main class="gallery-main">
+        <!-- Main Studio Workbench -->
+        <main class="studio-main">
             <!-- Upload Section -->
-            <section id="upload-section" class="section-container" aria-label="Artwork Upload Studio">
-                <div class="gallery-card drop-card">
-                    <div class="card-header-label">EXHIBITION ACQUISITION TRAY</div>
+            <section id="upload-section" class="section-block" aria-label="Artwork Upload Studio">
+                <div class="studio-card upload-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-label">RESTORATION STUDIO</span>
+                            <h2 class="card-title">Upload Image Specimen</h2>
+                        </div>
+                        <span class="card-badge">4X Neural Supersampling</span>
+                    </div>
                     
                     <div id="drop-zone" class="drop-zone" role="button" tabindex="0"
                          aria-label="Drop artwork image here or click to browse files">
-                        <div class="drop-zone-content">
-                            <div class="drop-icon-circle">
-                                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                    <circle cx="8.5" cy="8.5" r="1.5"/>
-                                    <polyline points="21 15 16 10 5 21"/>
+                        <div class="drop-zone-body">
+                            <div class="drop-icon-wrapper">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="17 8 12 3 7 8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
                                 </svg>
                             </div>
-                            <h2 class="drop-heading">Upload Artwork for Restoration</h2>
-                            <p class="drop-subtext">Drag &amp; drop your damaged image, or tap anywhere to select from gallery</p>
+                            <h3 class="drop-title">Drag &amp; drop artwork image here</h3>
+                            <p class="drop-subtitle">or click anywhere on this tray to select a file from your device</p>
                             
-                            <div class="drop-pills">
-                                <span class="gallery-pill">JPG &bull; PNG &bull; WEBP</span>
-                                <span class="gallery-pill">MAX 20 MB</span>
-                                <span class="gallery-pill">4X SUPERSAMPLING</span>
+                            <div class="format-pills-row">
+                                <span class="spec-pill">JPG &bull; PNG &bull; WEBP</span>
+                                <span class="spec-pill">UP TO 20 MB</span>
+                                <span class="spec-pill">GFPGAN FACE RECOVERY</span>
                             </div>
                         </div>
                         <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/*,.jpg,.jpeg,.png,.webp"
@@ -127,63 +140,81 @@
                     </div>
 
                     <!-- Sample Masterpiece Selection -->
-                    <div class="samples-gallery-bar">
-                        <span class="samples-label">Or select a sample damaged masterpiece to test:</span>
-                        <div class="sample-items-grid">
-                            <button type="button" id="sample-art-btn" class="sample-item-card" aria-label="Load Vintage Portrait specimen">
-                                <div class="sample-thumb">
+                    <div id="samples-anchor" class="samples-bar">
+                        <div class="samples-header">
+                            <span class="samples-title">Or test with a sample degraded masterpiece:</span>
+                        </div>
+                        <div class="samples-grid">
+                            <button type="button" id="sample-art-btn" class="sample-card" aria-label="Load Vintage Portrait sample">
+                                <div class="sample-thumb-box">
                                     <img src="/static/samples/sample_art.jpg" alt="Vintage Portrait Sample" />
                                 </div>
-                                <div class="sample-meta">
-                                    <span class="sample-title">Vintage Portrait (Degraded)</span>
-                                    <span class="sample-desc">678 × 452 px &bull; Scratch &amp; blur test</span>
+                                <div class="sample-info">
+                                    <span class="sample-name">Vintage Portrait (Archival)</span>
+                                    <span class="sample-details">678 &times; 452 px &bull; Scratch &amp; blur removal test</span>
                                 </div>
-                                <span class="sample-load-badge">Load Sample &rarr;</span>
+                                <div class="sample-action-badge">
+                                    <span>Load Sample</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </div>
                             </button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Preview Section -->
-            <section id="preview-section" class="section-container hidden" aria-label="Specimen Analysis">
-                <div class="gallery-card preview-card">
-                    <div class="card-header-label">SPECIMEN INSPECTION &amp; MODE SELECTION</div>
+            <!-- Specimen Inspection & Mode Selection -->
+            <section id="preview-section" class="section-block hidden" aria-label="Specimen Analysis">
+                <div class="studio-card preview-card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-label">SPECIMEN INSPECTION</span>
+                            <h2 class="card-title">Artwork Analysis &amp; Restoration Parameters</h2>
+                        </div>
+                    </div>
                     
-                    <div class="preview-layout">
-                        <div class="preview-frame">
+                    <div class="preview-grid">
+                        <div class="preview-view-frame">
                             <img id="preview-image" alt="Original uploaded artwork specimen" />
                         </div>
                         
-                        <div class="preview-controls">
-                            <h3 class="specimen-title">Artwork Specimen Analysis</h3>
+                        <div class="preview-panel">
+                            <h3 class="panel-heading">File &amp; Resolution Specs</h3>
                             
-                            <div class="specimen-meta-table">
-                                <div class="meta-row">
-                                    <span>File Name</span>
-                                    <strong id="file-name">-</strong>
+                            <div class="meta-specs-table">
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">File Name</span>
+                                    <strong id="file-name" class="spec-value">-</strong>
                                 </div>
-                                <div class="meta-row">
-                                    <span>File Size</span>
-                                    <strong id="file-size">-</strong>
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">File Size</span>
+                                    <strong id="file-size" class="spec-value">-</strong>
                                 </div>
-                                <div class="meta-row">
-                                    <span>Resolution</span>
-                                    <strong id="file-dims">-</strong>
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">Dimensions</span>
+                                    <strong id="file-dims" class="spec-value">-</strong>
                                 </div>
                             </div>
 
-                            <div class="mode-select-box">
-                                <label for="outscale-select" class="select-label">RESTORATION MODE</label>
-                                <select id="outscale-select" class="gallery-select">
-                                    <option value="4" selected>Ultra Quality (4x Super-Resolution)</option>
-                                    <option value="2">Fast Mode (2x Upscaling — 70% Accelerated)</option>
-                                </select>
+                            <div class="mode-select-group">
+                                <label for="outscale-select" class="field-label">RESTORATION MODE</label>
+                                <div class="select-wrapper">
+                                    <select id="outscale-select" class="studio-select">
+                                        <option value="4" selected>Ultra Quality (4x Super-Resolution + GFPGAN)</option>
+                                        <option value="2">Fast Mode (2x Upscaling — Accelerated Pipeline)</option>
+                                    </select>
+                                    <div class="select-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="action-buttons">
-                                <button id="restore-btn" class="btn btn-dark-pill btn-full">Execute Restoration</button>
-                                <button id="cancel-btn" class="btn btn-outline-pill btn-full">Select Different File</button>
+                            <div class="action-btn-stack">
+                                <button id="restore-btn" class="btn btn-primary-pill btn-full">
+                                    <span>Execute Restoration Engine</span>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </button>
+                                <button id="cancel-btn" class="btn btn-secondary-pill btn-full">Select Different Image</button>
                             </div>
                         </div>
                     </div>
@@ -191,43 +222,54 @@
             </section>
 
             <!-- Processing Section -->
-            <section id="processing-section" class="section-container hidden" aria-label="Neural Processing">
-                <div class="gallery-card processing-card">
-                    <div class="processing-thumbnail-wrap">
+            <section id="processing-section" class="section-block hidden" aria-label="Neural Processing">
+                <div class="studio-card processing-card">
+                    <div class="processing-thumb-container">
                         <img id="processing-thumbnail" alt="Artwork thumbnail being restored" />
-                        <div class="gallery-scan-beam"></div>
+                        <div class="laser-scan-line"></div>
                     </div>
 
-                    <div class="processing-info">
-                        <span class="processing-badge"><span class="tag-red-dot">●</span> NEURAL PIPELINE ACTIVE</span>
+                    <div class="processing-content">
+                        <div class="processing-tag">
+                            <span class="pulse-dot-blue"></span> NEURAL PIPELINE ENGAGED
+                        </div>
                         <h2 class="processing-heading">Restoring Artwork Specimen...</h2>
                         <p class="processing-subtext" id="processing-phase-text">Step 1/3: Analyzing canvas &amp; scratch artifacts...</p>
                         
-                        <div class="processing-phase-pills">
-                            <span class="phase-pill active" id="pstep-1">01 CANVAS ANALYSIS</span>
-                            <span class="phase-pill" id="pstep-2">02 REAL-ESRGAN 4X</span>
-                            <span class="phase-pill" id="pstep-3">03 GFPGAN RECOVERY</span>
+                        <div class="pipeline-steps-row">
+                            <div class="step-pill active" id="pstep-1">
+                                <span class="step-num">01</span>
+                                <span class="step-text">CANVAS ANALYSIS</span>
+                            </div>
+                            <div class="step-pill" id="pstep-2">
+                                <span class="step-num">02</span>
+                                <span class="step-text">REAL-ESRGAN 4X</span>
+                            </div>
+                            <div class="step-pill" id="pstep-3">
+                                <span class="step-num">03</span>
+                                <span class="step-text">GFPGAN RECOVERY</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Result Section -->
-            <section id="result-section" class="section-container hidden" aria-label="Restoration Result">
-                <div class="result-header-bar">
+            <section id="result-section" class="section-block hidden" aria-label="Restoration Result">
+                <div class="result-header">
                     <div>
-                        <span class="card-header-label">COMPLETED MASTER REVEAL</span>
-                        <h2 class="result-title">Restored Exhibition Masterpiece</h2>
+                        <span class="card-label">RESTORATION COMPLETE</span>
+                        <h2 class="result-heading">Restored Masterpiece</h2>
                     </div>
                     
-                    <div class="view-mode-toggle" role="group" aria-label="Comparison View Mode">
-                        <button type="button" id="mode-slider-btn" class="view-btn active" aria-pressed="true">Slider View</button>
-                        <button type="button" id="mode-side-btn" class="view-btn" aria-pressed="false">Side-by-Side</button>
+                    <div class="toggle-switch-group" role="group" aria-label="Comparison View Mode">
+                        <button type="button" id="mode-slider-btn" class="toggle-btn active" aria-pressed="true">Interactive Slider</button>
+                        <button type="button" id="mode-side-btn" class="toggle-btn" aria-pressed="false">Side-by-Side</button>
                     </div>
                 </div>
 
                 <!-- Slider View -->
-                <div id="slider-view-container" class="comparison-container">
+                <div id="slider-view-container" class="slider-display-box">
                     <div class="comparison-wrapper" id="comparison-wrapper">
                         <img id="before-image" class="comparison-img" alt="Original artwork before restoration" />
                         <img id="after-image" class="comparison-img comparison-after" alt="Restored artwork after AI processing" />
@@ -235,29 +277,29 @@
                         <div class="comparison-slider" id="comparison-slider" role="slider"
                              aria-label="Comparison slider position" aria-valuemin="0" aria-valuemax="100"
                              aria-valuenow="50" tabindex="0">
-                            <div class="slider-line"></div>
-                            <div class="slider-handle">
+                            <div class="slider-divider-line"></div>
+                            <div class="slider-handle-pill">
                                 <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                                     <path d="M8 5l-5 7 5 7V5zm8 0v14l5-7-5-7z"/>
                                 </svg>
                             </div>
                         </div>
-                        <span class="comparison-label label-before">ORIGINAL CANVAS</span>
-                        <span class="comparison-label label-after">RESTORED MASTER</span>
+                        <span class="label-badge label-before">ORIGINAL CANVAS</span>
+                        <span class="label-badge label-after">RESTORED MASTER</span>
                     </div>
                 </div>
 
                 <!-- Side-by-Side View -->
-                <div id="side-view-container" class="side-by-side-container hidden">
-                    <div class="side-card">
-                        <div class="side-title-bar">ORIGINAL SPECIMEN</div>
-                        <div class="side-img-box">
+                <div id="side-view-container" class="side-display-grid hidden">
+                    <div class="side-view-card">
+                        <div class="side-card-header">ORIGINAL SPECIMEN</div>
+                        <div class="side-img-wrapper">
                             <img id="side-before-image" alt="Original specimen" />
                         </div>
                     </div>
-                    <div class="side-card">
-                        <div class="side-title-bar">RESTORED MASTER</div>
-                        <div class="side-img-box">
+                    <div class="side-view-card">
+                        <div class="side-card-header">RESTORED MASTER</div>
+                        <div class="side-img-wrapper">
                             <img id="side-after-image" alt="Restored master" />
                         </div>
                     </div>
@@ -267,34 +309,38 @@
                 <div class="result-details" id="result-details"></div>
 
                 <!-- Actions -->
-                <div class="result-action-bar">
-                    <button id="download-btn" class="btn btn-dark-pill btn-large">Download Restored Master</button>
-                    <button id="new-image-btn" class="btn btn-outline-pill">Restore Another Artwork</button>
+                <div class="result-actions-row">
+                    <button id="download-btn" class="btn btn-primary-pill btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Download Restored Master</span>
+                    </button>
+                    <button id="new-image-btn" class="btn btn-secondary-pill">Restore Another Image</button>
                 </div>
             </section>
 
             <!-- Error Section -->
-            <section id="error-section" class="section-container hidden" aria-label="Error State">
-                <div class="gallery-card error-card">
-                    <div class="error-icon-box">!</div>
+            <section id="error-section" class="section-block hidden" aria-label="Error State">
+                <div class="studio-card error-card">
+                    <div class="error-badge-icon">!</div>
                     <h2 class="error-title">Restoration Interrupted</h2>
-                    <p id="error-message" class="error-message"></p>
-                    <button id="retry-btn" class="btn btn-dark-pill">Return to Studio</button>
+                    <p id="error-message" class="error-subtext"></p>
+                    <button id="retry-btn" class="btn btn-primary-pill">Return to Studio</button>
                 </div>
             </section>
         </main>
 
         <!-- Footer -->
-        <footer id="footer-section" class="gallery-footer">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="brand-dot">❖</span>
-                    <span>RESTORY &bull; ART CONSERVATION GALLERY</span>
+        <footer class="studio-footer">
+            <div class="footer-inner">
+                <div class="footer-brand-line">
+                    <span class="footer-logo">ReStory</span>
+                    <span class="footer-divider">&bull;</span>
+                    <span class="footer-motto">"We believe every image is an art"</span>
                 </div>
-                <p class="footer-info">
-                    Powered by <strong>Real-ESRGAN</strong> (super-resolution) &amp; <strong>GFPGAN</strong> (facial reconstruction)
+                <p class="footer-tech">
+                    Powered by <strong>Real-ESRGAN</strong> (neural super-resolution) &amp; <strong>GFPGAN</strong> (facial restoration)
                 </p>
-                <p class="footer-sub">Art gallery edition &bull; Built with PyTorch, Flask &amp; OpenCV</p>
+                <p class="footer-copy">&copy; ReStory Conservation Studio &bull; Built with PyTorch, Flask &amp; OpenCV</p>
             </div>
         </footer>
     </div>
