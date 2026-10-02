@@ -8,8 +8,10 @@ import cv2
 
 logger = logging.getLogger(__name__)
 
-# Model weights URL
-REALESRGAN_URL = 'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth'
+REALESRGAN_URLS = [
+    'https://huggingface.co/ckpt/RealESRGAN_x4plus/resolve/main/RealESRGAN_x4plus.pth',
+    'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth'
+]
 WEIGHTS_FILENAME = 'RealESRGAN_x4plus.pth'
 
 
@@ -27,18 +29,37 @@ class RealESRGANWrapper:
         """Download model weights if they don't exist."""
         os.makedirs(self.weights_dir, exist_ok=True)
 
-        if not os.path.exists(self.weights_path):
+        if not os.path.exists(self.weights_path) or os.path.getsize(self.weights_path) < 1_000_000:
             logger.info(f"Downloading RealESRGAN_x4plus weights to {self.weights_path}...")
-            try:
-                urllib.request.urlretrieve(REALESRGAN_URL, self.weights_path)
-                file_size = os.path.getsize(self.weights_path)
-                logger.info(f"Download completed. File size: {file_size / 1024 / 1024:.1f} MB")
-                if file_size < 1_000_000:
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            success = False
+            last_err = None
+
+            for url in REALESRGAN_URLS:
+                try:
+                    logger.info(f"Attempting download from {url}...")
+                    req = urllib.request.Request(url, headers=headers)
+                    with urllib.request.urlopen(req, timeout=120) as response, open(self.weights_path, 'wb') as out_file:
+                        data = response.read()
+                        out_file.write(data)
+
+                    file_size = os.path.getsize(self.weights_path)
+                    logger.info(f"Download finished. Size: {file_size / 1024 / 1024:.1f} MB")
+                    if file_size >= 1_000_000:
+                        success = True
+                        break
+                    else:
+                        logger.warning("Downloaded file too small, removing and trying next mirror...")
+                        if os.path.exists(self.weights_path):
+                            os.remove(self.weights_path)
+                except Exception as e:
+                    logger.warning(f"Failed to download from {url}: {e}")
+                    last_err = e
+
+            if not success:
+                if os.path.exists(self.weights_path):
                     os.remove(self.weights_path)
-                    raise RuntimeError("Downloaded file is too small — likely corrupted or a redirect page")
-            except Exception as e:
-                logger.error(f"Failed to download weights: {e}")
-                raise
+                raise RuntimeError(f"Failed to download Real-ESRGAN weights from all mirrors: {last_err}")
         else:
             logger.info(f"Weights already exist at {self.weights_path}")
 

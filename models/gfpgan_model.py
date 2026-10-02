@@ -6,29 +6,55 @@ from gfpgan import GFPGANer
 
 logger = logging.getLogger(__name__)
 
+GFPGAN_URLS = [
+    'https://huggingface.co/gfpgan/GFPGAN/resolve/main/GFPGANv1.4.pth',
+    'https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth'
+]
+
+
 class GFPGANWrapper:
     def __init__(self, device=None, weights_dir='weights'):
         self.device = device if device else torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.weights_dir = weights_dir
         self.model_name = 'GFPGANv1.4'
         self.weights_path = os.path.join(self.weights_dir, f'{self.model_name}.pth')
-        self.model_url = 'https://github.com/TencentARC/GFPGAN/releases/download/v1.3.4/GFPGANv1.4.pth'
-        
+
         self.gfpganer = None
         self._load_model()
 
     def download_weights(self):
-        if not os.path.exists(self.weights_dir):
-            os.makedirs(self.weights_dir)
-            
-        if not os.path.exists(self.weights_path):
+        os.makedirs(self.weights_dir, exist_ok=True)
+
+        if not os.path.exists(self.weights_path) or os.path.getsize(self.weights_path) < 1_000_000:
             logger.info(f"Downloading {self.model_name} weights to {self.weights_path}...")
-            try:
-                urllib.request.urlretrieve(self.model_url, self.weights_path)
-                logger.info("Download completed.")
-            except Exception as e:
-                logger.error(f"Failed to download weights: {e}")
-                raise
+            headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+            success = False
+            last_err = None
+
+            for url in GFPGAN_URLS:
+                try:
+                    logger.info(f"Attempting GFPGAN download from {url}...")
+                    req = urllib.request.Request(url, headers=headers)
+                    with urllib.request.urlopen(req, timeout=120) as response, open(self.weights_path, 'wb') as out_file:
+                        data = response.read()
+                        out_file.write(data)
+
+                    file_size = os.path.getsize(self.weights_path)
+                    logger.info(f"GFPGAN Download finished. Size: {file_size / 1024 / 1024:.1f} MB")
+                    if file_size >= 1_000_000:
+                        success = True
+                        break
+                    else:
+                        if os.path.exists(self.weights_path):
+                            os.remove(self.weights_path)
+                except Exception as e:
+                    logger.warning(f"Failed GFPGAN download from {url}: {e}")
+                    last_err = e
+
+            if not success:
+                if os.path.exists(self.weights_path):
+                    os.remove(self.weights_path)
+                raise RuntimeError(f"Failed to download GFPGAN weights from all mirrors: {last_err}")
         else:
             logger.info(f"Weights already exist at {self.weights_path}")
 
