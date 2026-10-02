@@ -925,3 +925,223 @@
 2026-10-02 22:31:01,694 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 22:31:01] "GET /static/css/style.css HTTP/1.1" 200 -
 2026-10-02 22:31:02,500 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 22:31:02] "GET /static/js/app.js HTTP/1.1" 200 -
 2026-10-02 22:31:03,416 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 22:31:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-02 23:58:41,784 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-02 23:58:41,784 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-02 23:58:41,785 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-02 23:58:41,786 - __main__ - INFO - App initialized — device: cpu
+2026-10-02 23:58:41,786 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-02 23:58:41,793 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-02 23:58:41,851 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-02 23:58:41,851 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-02 23:58:45,357 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-02 23:58:45,592 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-02 23:58:46,110 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-02 23:58:46,110 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-02 23:58:46,110 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-02 23:58:46,220 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-02 23:58:46,221 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-02 23:58:50,356 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-02 23:58:50,357 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-02 23:59:38,878 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 23:59:38] "GET / HTTP/1.1" 200 -
+2026-10-02 23:59:40,046 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 23:59:40] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-10-02 23:59:40,049 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 23:59:40] "GET /static/samples/sample_art.jpg HTTP/1.1" 200 -
+2026-10-02 23:59:40,050 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 23:59:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-02 23:59:41,061 - werkzeug - INFO - 127.0.0.1 - - [02/Oct/2026 23:59:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-02 23:59:49,665 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-02 23:59:49,667 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-02 23:59:49,804 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 341x384 for speed optimization
+2026-10-02 23:59:49,810 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (384, 341, 3), 'dtype': 'uint8', 'channels': 3, 'height': 384, 'width': 341}
+2026-10-02 23:59:49,843 - models.realesrgan_model - INFO - Enhancing image (341x384) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 00:01:20,042 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1536, 1364, 3)
+2026-10-03 00:01:20,426 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1536, 1364, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1536, 'width': 1364}
+2026-10-03 00:01:21,905 - pipeline.face_processing - INFO - Skin-tone heuristic: 64.3% skin pixels — likely has faces
+2026-10-03 00:01:21,906 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 00:01:21,975 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 00:02:03,525 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 00:02:07,284 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:02:07] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 00:02:07,565 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:02:07] "GET /api/result/9b6e918e-8472-4b0b-b374-eba3e32c9f1d?t=1790965927353 HTTP/1.1" 200 -
+2026-10-03 00:11:24,962 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:24] "GET / HTTP/1.1" 200 -
+2026-10-03 00:11:25,077 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:25] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:11:25,083 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:25] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:11:25,093 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:25] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 00:11:32,021 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "GET / HTTP/1.1" 200 -
+2026-10-03 00:11:32,048 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:11:32,059 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:11:32,064 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 00:11:32,701 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "GET / HTTP/1.1" 200 -
+2026-10-03 00:11:32,727 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 00:11:32,737 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:11:32,743 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:32] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 00:11:57,009 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:57] "GET / HTTP/1.1" 200 -
+2026-10-03 00:11:57,212 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:57] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:11:57,218 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:57] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 00:11:57,225 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:11:57] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:25:34,693 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:25:34] "GET / HTTP/1.1" 200 -
+2026-10-03 00:25:34,765 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:25:34] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:25:34,792 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:25:34] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:25:34,802 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:25:34] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 00:45:47,281 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 00:45:47,282 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 00:45:47,283 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-03 00:45:47,283 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 00:45:47,283 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 00:45:47,289 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 00:45:47,335 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 00:45:47,335 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 00:45:50,189 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 00:45:50,454 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 00:45:51,001 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 00:45:51,001 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 00:45:51,002 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 00:45:51,123 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 00:45:51,123 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 00:45:56,111 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 00:45:56,126 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-03 00:46:42,363 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:46:42] "HEAD / HTTP/1.1" 200 -
+2026-10-03 00:46:42,376 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:46:42] "GET / HTTP/1.1" 200 -
+2026-10-03 00:50:43,033 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:50:43] "GET / HTTP/1.1" 200 -
+2026-10-03 00:50:43,694 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:50:43] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-10-03 00:50:43,704 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:50:43] "GET /static/samples/sample_art.jpg HTTP/1.1" 200 -
+2026-10-03 00:50:43,709 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:50:43] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:50:44,774 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:50:44] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-03 00:58:23,577 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:58:23] "GET / HTTP/1.1" 200 -
+2026-10-03 00:58:23,745 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:58:23] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 00:58:23,748 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:58:23] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 00:58:23,749 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 00:58:23] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:06:40,197 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:06:40] "GET / HTTP/1.1" 200 -
+2026-10-03 01:06:40,363 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:06:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 01:06:41,132 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:06:41] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 01:06:41,405 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:06:41] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:14:39,146 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 01:14:39,148 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 01:14:39,149 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-03 01:14:39,149 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 01:14:39,149 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 01:14:39,154 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 01:14:39,441 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 01:14:39,441 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 01:14:43,300 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 01:14:43,513 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 01:14:43,977 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:14:43,977 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:14:43,977 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 01:14:44,140 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 01:14:44,140 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 01:14:48,924 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 01:14:48,936 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-03 01:14:59,734 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:14:59] "HEAD / HTTP/1.1" 200 -
+2026-10-03 01:14:59,756 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:14:59] "GET / HTTP/1.1" 200 -
+2026-10-03 01:15:20,538 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:15:20] "GET / HTTP/1.1" 200 -
+2026-10-03 01:15:21,292 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:15:21] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 01:15:21,299 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:15:21] "GET /static/samples/sample_art.jpg HTTP/1.1" 200 -
+2026-10-03 01:15:21,303 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:15:21] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-10-03 01:15:21,988 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:15:21] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-03 01:18:53,046 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 01:18:53,047 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 01:18:53,047 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-03 01:18:53,048 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 01:18:53,048 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 01:18:53,053 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 01:18:53,085 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 01:18:53,085 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 01:18:55,420 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 01:18:55,650 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 01:18:56,091 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:18:56,091 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:18:56,091 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 01:18:56,175 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 01:18:56,175 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 01:19:01,369 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 01:19:01,388 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-03 01:19:03,171 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:03] "HEAD / HTTP/1.1" 200 -
+2026-10-03 01:19:03,181 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:03] "GET / HTTP/1.1" 200 -
+2026-10-03 01:19:40,319 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:40] "GET / HTTP/1.1" 200 -
+2026-10-03 01:19:40,928 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:40] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:19:40,928 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 01:19:40,938 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:19:40] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 01:25:29,033 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 01:25:29,033 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 01:25:29,034 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-03 01:25:29,035 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 01:25:29,035 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 01:25:29,041 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 01:25:29,076 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 01:25:29,076 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 01:25:31,291 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 01:25:31,446 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 01:25:31,850 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:25:31,850 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:25:31,850 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 01:25:31,929 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 01:25:31,929 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 01:25:35,048 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 01:25:35,052 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-03 01:26:51,612 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:26:51] "HEAD / HTTP/1.1" 200 -
+2026-10-03 01:26:51,621 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:26:51] "GET / HTTP/1.1" 200 -
+2026-10-03 01:27:25,916 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:27:25] "GET / HTTP/1.1" 200 -
+2026-10-03 01:27:26,320 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:27:26] "GET /static/samples/sample_art.jpg HTTP/1.1" 200 -
+2026-10-03 01:27:26,337 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:27:26] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 01:27:26,339 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:27:26] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-10-03 01:27:27,563 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:27:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-03 01:31:06,154 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:06] "GET / HTTP/1.1" 200 -
+2026-10-03 01:31:06,663 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:06] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:31:06,683 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 01:31:06,696 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:06] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 01:31:14,226 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:14] "GET / HTTP/1.1" 200 -
+2026-10-03 01:31:14,383 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 01:31:14,387 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:14] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 01:31:14,410 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:31:14] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:34:20,344 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 01:34:20,346 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 01:34:20,346 - models.model_manager - INFO - Background model pre-loading started...
+2026-10-03 01:34:20,346 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 01:34:20,347 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 01:34:20,351 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 01:34:20,390 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 01:34:20,390 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 01:34:22,327 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 01:34:22,490 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 01:34:22,891 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:34:22,891 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 01:34:22,891 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 01:34:22,960 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 01:34:22,960 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 01:34:25,677 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 01:34:25,681 - models.model_manager - INFO - Background model pre-loading completed successfully.
+2026-10-03 01:34:48,237 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:34:48] "HEAD / HTTP/1.1" 200 -
+2026-10-03 01:34:48,243 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:34:48] "GET / HTTP/1.1" 200 -
+2026-10-03 01:35:40,262 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:35:40] "GET / HTTP/1.1" 200 -
+2026-10-03 01:35:40,734 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:35:40] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 01:35:40,736 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:35:40] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 01:35:40,737 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:35:40] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 01:36:28,004 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 01:36:28,009 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 01:36:28,246 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 341x384 for speed optimization
+2026-10-03 01:36:28,247 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (384, 341, 3), 'dtype': 'uint8', 'channels': 3, 'height': 384, 'width': 341}
+2026-10-03 01:36:28,359 - models.realesrgan_model - INFO - Enhancing image (341x384) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 01:38:05,808 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1536, 1364, 3)
+2026-10-03 01:38:06,174 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1536, 1364, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1536, 'width': 1364}
+2026-10-03 01:38:06,788 - pipeline.face_processing - INFO - Skin-tone heuristic: 64.3% skin pixels — likely has faces
+2026-10-03 01:38:06,790 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 01:38:06,831 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 01:38:39,581 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 01:38:51,343 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:38:51] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 01:38:52,789 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:38:52] "GET /api/result/1d32677b-88f5-4c60-94fd-c26c93b610f6?t=1790971731618 HTTP/1.1" 200 -
