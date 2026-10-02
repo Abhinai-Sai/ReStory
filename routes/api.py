@@ -63,6 +63,22 @@ def restore_image():
         except Exception as e:
             logger.warning(f"Failed to remove input file {input_path}: {e}")
 
+        # Periodically clean up old outputs (>30 mins) to preserve container disk space on Render
+        try:
+            now = time.time()
+            output_dir = current_app.config['OUTPUT_FOLDER']
+            for fname in os.listdir(output_dir):
+                if fname == '.gitkeep':
+                    continue
+                fpath = os.path.join(output_dir, fname)
+                if os.path.isfile(fpath) and (now - os.path.getmtime(fpath)) > 1800:
+                    try:
+                        os.remove(fpath)
+                    except Exception:
+                        pass
+        except Exception as err:
+            logger.warning(f"Output cleanup warning: {err}")
+
         if not result.get('success', False):
             return jsonify({
                 'success': False,

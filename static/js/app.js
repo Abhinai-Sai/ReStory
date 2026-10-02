@@ -233,10 +233,20 @@
                 body: formData,
             });
 
-            const data = await response.json();
+            let data;
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) {
+                data = await response.json();
+            } else {
+                const text = await response.text();
+                if (text.includes('loca.lt') || text.includes('tunnel') || text.includes('Bypass')) {
+                    throw new Error('Tunnel verification required. Please visit the tunnel URL in your browser first to click "Click to Continue".');
+                }
+                throw new Error(`Server returned HTML error (${response.status} ${response.statusText}).`);
+            }
 
             if (!response.ok || !data.success) {
-                throw new Error(data.error || `Server error (${response.status})`);
+                throw new Error(data.error || `Restoration failed (${response.status})`);
             }
 
             currentOutputId = data.output_id;
