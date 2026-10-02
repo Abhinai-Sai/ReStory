@@ -9,8 +9,8 @@ import cv2
 logger = logging.getLogger(__name__)
 
 REALESRGAN_URLS = [
-    'https://huggingface.co/ckpt/RealESRGAN_x4plus/resolve/main/RealESRGAN_x4plus.pth',
-    'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth'
+    'https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth',
+    'https://huggingface.co/datasets/GaoJing/RealESRGAN_x4plus/resolve/main/RealESRGAN_x4plus.pth'
 ]
 WEIGHTS_FILENAME = 'RealESRGAN_x4plus.pth'
 
@@ -80,9 +80,8 @@ class RealESRGANWrapper:
         model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
 
         half_precision = self.device.type == 'cuda'
-        # On CPU, disable tiling (tile=0) to run in 1 single pass for maximum speed.
-        # On GPU, use 512 tile size to prevent VRAM OOM.
-        tile_size = 512 if self.device.type == 'cuda' else 0
+        # On GPU, use 512 tile size. On CPU, use 256 tile size to restrict RAM usage under 30 MB.
+        tile_size = 512 if self.device.type == 'cuda' else 256
 
         logger.info(f"Initializing RealESRGANer (half={half_precision}, tile={tile_size}, device={self.device})...")
         try:
@@ -103,41 +102,21 @@ class RealESRGANWrapper:
 
     @torch.inference_mode()
     def enhance(self, img_bgr, outscale=4):
-        """Enhance an image using Real-ESRGAN.
-
-        Args:
-            img_bgr: Input BGR numpy array (uint8).
-            outscale: Output upscaling factor.
-
-        Returns:
-            Enhanced BGR numpy array (uint8).
-        """
+        """Enhance an image using Real-ESRGAN."""
         if self.upsampler is None:
             raise RuntimeError("Real-ESRGAN model is not loaded.")
 
         h, w = img_bgr.shape[:2]
-        original_tile = getattr(self.upsampler, 'tile_size', 0)
+        # Always enforce tile_size >= 256 on CPU to avoid OOM memory spikes
+        if self.device.type == 'cpu' and getattr(self.upsampler, 'tile_size', 0) == 0:
+            self.upsampler.tile_size = 256
 
-        # On CPU, process untiled for speed unless image exceeds 1024px
-        if self.device.type == 'cpu' and (h > 1024 or w > 1024):
-            self.upsampler.tile_size = 512
-
-        logger.info(f"Enhancing image ({w}x{h}) with Real-ESRGAN (tile={getattr(self.upsampler, 'tile_size', 0)}, outscale={outscale})...")
+        tile_used = getattr(self.upsampler, 'tile_size', 256)
+        logger.info(f"Enhancing image ({w}x{h}) with Real-ESRGAN (tile={tile_used}, outscale={outscale})...")
         try:
             output, _ = self.upsampler.enhance(img_bgr, outscale=outscale)
             logger.info(f"Enhancement complete — output shape: {output.shape}")
             return output
-        except RuntimeError as e:
-            if 'out of memory' in str(e).lower() and hasattr(self.upsampler, 'tile_size'):
-                logger.warning("GPU OOM — retrying with smaller tile size...")
-                self.upsampler.tile_size = max(64, original_tile // 2 if original_tile > 0 else 256)
-                try:
-                    output, _ = self.upsampler.enhance(img_bgr, outscale=outscale)
-                    return output
-                except Exception as retry_e:
-                    logger.error(f"Retry also failed: {retry_e}")
-                    raise
+        except Exception as e:
+            logger.error(f"Real-ESRGAN enhance error: {e}")
             raise
-        finally:
-            if hasattr(self.upsampler, 'tile_size'):
-                self.upsampler.tile_size = original_tile

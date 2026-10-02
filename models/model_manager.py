@@ -22,7 +22,7 @@ class ModelManager:
 
         # Optimize PyTorch CPU thread utilization
         if self.device.type == 'cpu':
-            num_cores = os.cpu_count() or 4
+            num_cores = min(2, os.cpu_count() or 2)
             torch.set_num_threads(num_cores)
             logger.info(f"PyTorch CPU threads set to {num_cores}")
 
