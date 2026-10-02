@@ -4,269 +4,280 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReStory — AI Art Restoration & Conservation Studio</title>
-    <!-- Google Fonts: Cormorant Garamond (Editorial Serif), Plus Jakarta Sans (Bold Headings), Inter (Clean Sans), JetBrains Mono (Archival Specs) -->
+    <!-- Google Fonts: Plus Jakarta Sans (Bold Headings & Display), Inter (Clean Body), JetBrains Mono (Tech Specs) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-    <!-- Main Exhibition Canvas Wrapper -->
+    <!-- Main Studio Wrapper -->
     <div class="studio-wrapper">
         
-        <!-- Gallery Header Navigation -->
+        <!-- Header Navigation Bar -->
         <header class="studio-header">
             <nav class="nav-container">
                 <div class="nav-left">
                     <a href="#hero-section" class="brand-logo" aria-label="ReStory Home">
-                        <div class="logo-mark">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
-                                <rect x="3" y="3" width="18" height="18" rx="1"/>
-                                <path d="M3 15l5-5 4 4 3-3 6 6"/>
-                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <div class="logo-icon-art">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                                <path d="M3 3v5h5"/>
+                                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                                <path d="M16 16h5v5"/>
                             </svg>
                         </div>
-                        <span class="brand-name">ReStory</span>
+                        <div class="brand-text-block">
+                            <span class="brand-name">ReStory</span>
+                        </div>
                     </a>
                 </div>
                 
                 <div class="nav-center">
-                    <div class="nav-links">
-                        <a href="#hero-section" class="nav-item active">Home</a>
-                        <a href="#upload-section" class="nav-item">Studio Workbench</a>
-                        <a href="#samples-anchor" class="nav-item">Archive Catalog</a>
+                    <div class="nav-links-group">
+                        <a href="#hero-section" class="nav-link active">Home</a>
+                        <a href="#upload-section" class="nav-link">Restoration Studio</a>
+                        <a href="#samples-anchor" class="nav-link">Sample Artworks</a>
                     </div>
                 </div>
 
                 <div class="nav-right">
-                    <span class="studio-status-tag">
-                        <span class="status-indicator"></span> CONSERVATION ENGINE ACTIVE
+                    <span class="status-pill-seagreen">
+                        <span class="status-dot-mint"></span> Studio Ready
                     </span>
                 </div>
             </nav>
         </header>
 
-        <!-- Asymmetric Editorial Hero Section -->
-        <section id="hero-section" class="hero-editorial">
-            <div class="hero-editorial-container">
-                
-                <!-- Left Editorial Column -->
-                <div class="hero-column-text">
-                    <div class="catalog-eyebrow">
-                        <span class="catalog-no">CATALOG No. 2026</span>
-                        <span class="catalog-sep">//</span>
-                        <span class="catalog-desc">DIGITAL ART CONSERVATION</span>
+        <!-- Hero Section -->
+        <section id="hero-section" class="hero-section">
+            <!-- Premium Pale Sea Green & Ambient Aura Blobs -->
+            <div class="aura-blob blob-seagreen"></div>
+            <div class="aura-blob blob-sage"></div>
+            <div class="aura-blob blob-mint"></div>
+            <div class="aura-blob blob-teal"></div>
+
+            <div class="hero-container">
+                <!-- Floating Artwork Collage (Pale Sea Green & Sage Frames) -->
+                <div class="floating-art-wrapper">
+                    <div class="floating-art art-card-seagreen art-pos-1">
+                        <img src="https://picsum.photos/seed/monet-garden/260/320" alt="Impressionist canvas artwork" />
+                        <span class="art-corner-tag tag-seagreen">Oil Canvas</span>
                     </div>
                     
-                    <h1 class="hero-brand-title">ReStory</h1>
+                    <div class="floating-art art-card-sage art-pos-2">
+                        <img src="https://picsum.photos/seed/baroque-court/280/240" alt="Baroque portrait artwork" />
+                        <span class="art-corner-tag tag-sage">Portrait</span>
+                    </div>
+                    
+                    <div class="floating-art art-card-teal art-pos-3">
+                        <img src="https://picsum.photos/seed/dutch-flowers/320/240" alt="Still life oil painting artwork" />
+                        <div class="art-tag-badge-seagreen">
+                            <span class="badge-dot-teal"></span> Real-ESRGAN &amp; GFPGAN 4X
+                        </div>
+                    </div>
+
+                    <div class="floating-art art-card-mint art-pos-4">
+                        <img src="/static/samples/sample_art.jpg" alt="Vintage portrait artwork" />
+                        <span class="art-corner-tag tag-mint">Archival</span>
+                    </div>
+                </div>
+
+                <!-- Central Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-eyebrow-seagreen">
+                        <span class="eyebrow-sparkle">✦</span> AI NEURAL ART RESTORATION
+                    </div>
+                    
+                    <h1 class="hero-title-brand">ReStory</h1>
                     
                     <p class="hero-tagline">ReStore the art in your images</p>
                     
-                    <p class="hero-lead">
-                        An editorial digital art restoration studio. Dedicated to preserving damaged oil paintings, faded family archives, and degraded fine art photography through deep neural super-resolution and facial reconstruction.
+                    <p class="hero-description">
+                        An elegant digital conservation studio. Enhance faded heirlooms, repair damaged oil paintings, and restore historical photographs with deep super-resolution and facial recovery.
                     </p>
                     
-                    <div class="hero-cta-group">
-                        <a href="#upload-section" class="btn btn-editorial-primary">
+                    <div class="hero-actions">
+                        <a href="#upload-section" class="btn btn-seagreen-primary">
                             <span>Open Restoration Studio</span>
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
                         </a>
-                        <a href="#samples-anchor" class="btn btn-editorial-secondary">Browse Archive Catalog</a>
+                        <a href="#samples-anchor" class="btn btn-seagreen-secondary">Try Sample Artwork</a>
                     </div>
                 </div>
-
-                <!-- Right Framed Artwork Column -->
-                <div class="hero-column-artwork">
-                    <div class="museum-artwork-frame">
-                        <div class="frame-passepartout">
-                            <img src="/static/samples/sample_art.jpg" alt="Historical archival artwork candidate" />
-                        </div>
-                        <div class="museum-caption-plate">
-                            <span class="plate-title">PLATE I. Vintage Archival Portrait, c. 1924</span>
-                            <span class="plate-meta">4X Super-Resolution &bull; Scratch &amp; Artifact Removal Candidate</span>
-                        </div>
-                    </div>
-                    <div class="color-block-accent"></div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Main Restoration Studio Workbench -->
+        <!-- Main Studio Workbench -->
         <main class="studio-main">
-            
             <!-- Upload Section -->
-            <section id="upload-section" class="section-editorial" aria-label="Artwork Upload Studio">
-                <div class="editorial-block upload-workbench">
-                    
-                    <div class="workbench-header">
-                        <div>
-                            <span class="section-eyebrow">WORKBENCH ACQUISITION TRAY</span>
-                            <h2 class="section-title">Upload Image for Restoration</h2>
+            <section id="upload-section" class="section-block" aria-label="Artwork Upload Studio">
+                <div class="studio-card upload-card-seagreen">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-label-seagreen label-seagreen">RESTORATION WORKBENCH</span>
+                            <h2 class="card-heading">Upload Artwork Image</h2>
                         </div>
-                        <span class="archival-badge">4X Neural Engine</span>
+                        <span class="card-badge-seagreen badge-teal">4X Neural Engine</span>
                     </div>
-
-                    <div id="drop-zone" class="editorial-drop-zone" role="button" tabindex="0"
+                    
+                    <div id="drop-zone" class="drop-zone-seagreen" role="button" tabindex="0"
                          aria-label="Drop artwork image here or click to browse files">
-                        <div class="drop-content">
-                            <div class="drop-icon-box">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <div class="drop-zone-body">
+                            <div class="drop-icon-seagreen">
+                                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                     <polyline points="17 8 12 3 7 8"/>
                                     <line x1="12" y1="3" x2="12" y2="15"/>
                                 </svg>
                             </div>
-                            <h3 class="drop-headline">Select or drag artwork image here</h3>
-                            <p class="drop-subline">Supports high-resolution photographic scans and digital canvas files</p>
+                            <h3 class="drop-title">Drag &amp; drop your image here</h3>
+                            <p class="drop-subtitle">or click anywhere on this tray to select an artwork file</p>
                             
-                            <div class="archival-tags-row">
-                                <span class="tag-chip chip-sand">JPG &bull; PNG &bull; WEBP</span>
-                                <span class="tag-chip chip-sage">UP TO 20 MB</span>
-                                <span class="tag-chip chip-terracotta">GFPGAN FACIAL RECOVERY</span>
+                            <div class="format-pills-row">
+                                <span class="spec-pill-seagreen pill-seagreen">JPG &bull; PNG &bull; WEBP</span>
+                                <span class="spec-pill-seagreen pill-sage">UP TO 20 MB</span>
+                                <span class="spec-pill-seagreen pill-mint">GFPGAN FACE RECOVERY</span>
                             </div>
                         </div>
                         <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/*,.jpg,.jpeg,.png,.webp"
                                class="file-input" aria-label="Select artwork image file">
                     </div>
 
-                    <!-- Archival Sample Masterpieces -->
-                    <div id="samples-anchor" class="archive-samples-strip">
-                        <span class="archive-label">Or load a sample degraded archive image to test:</span>
-                        <div class="archive-items-grid">
-                            <button type="button" id="sample-art-btn" class="archive-sample-item" aria-label="Load Vintage Portrait sample">
-                                <div class="sample-thumb-wrapper">
+                    <!-- Sample Masterpiece Selection -->
+                    <div id="samples-anchor" class="samples-bar-seagreen">
+                        <div class="samples-header">
+                            <span class="samples-title">Or test with a sample degraded masterpiece:</span>
+                        </div>
+                        <div class="samples-grid">
+                            <button type="button" id="sample-art-btn" class="sample-card-seagreen" aria-label="Load Vintage Portrait sample">
+                                <div class="sample-thumb-box">
                                     <img src="/static/samples/sample_art.jpg" alt="Vintage Portrait Sample" />
                                 </div>
-                                <div class="sample-details">
-                                    <span class="sample-title">Vintage Portrait (Archival Scan)</span>
-                                    <span class="sample-specs">678 &times; 452 px &bull; Scratch &amp; degradation test</span>
+                                <div class="sample-info">
+                                    <span class="sample-name">Vintage Portrait (Archival)</span>
+                                    <span class="sample-details">678 &times; 452 px &bull; Scratch &amp; blur removal test</span>
                                 </div>
-                                <div class="sample-action-tag">
+                                <div class="sample-action-badge-seagreen">
                                     <span>Load Sample</span>
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </div>
                             </button>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- Image Inspection & Mode Selection -->
-            <section id="preview-section" class="section-editorial hidden" aria-label="Artwork Analysis">
-                <div class="editorial-block preview-inspection">
-                    
-                    <div class="workbench-header">
-                        <div>
-                            <span class="section-eyebrow">CANVAS INSPECTION &amp; METADATA</span>
-                            <h2 class="section-title">Artwork Analysis &amp; Restoration Parameters</h2>
+            <!-- Artwork Inspection & Mode Selection -->
+            <section id="preview-section" class="section-block hidden" aria-label="Artwork Analysis">
+                <div class="studio-card preview-card-seagreen">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <span class="card-label-seagreen label-teal">ARTWORK INSPECTION</span>
+                            <h2 class="card-heading">Artwork Analysis &amp; Restoration Parameters</h2>
                         </div>
                     </div>
-
-                    <div class="inspection-split-layout">
-                        <div class="inspection-frame-container">
-                            <div class="artwork-passepartout">
-                                <img id="preview-image" alt="Original uploaded artwork" />
-                            </div>
+                    
+                    <div class="preview-grid">
+                        <div class="preview-view-frame">
+                            <img id="preview-image" alt="Original uploaded artwork" />
                         </div>
-
-                        <div class="inspection-control-panel">
-                            <h3 class="panel-title">Technical Specifications</h3>
+                        
+                        <div class="preview-panel">
+                            <h3 class="panel-heading">File &amp; Resolution Specs</h3>
                             
-                            <div class="specifications-list">
-                                <div class="spec-row">
-                                    <span class="spec-key">File Name</span>
-                                    <strong id="file-name" class="spec-val">-</strong>
+                            <div class="meta-specs-table-seagreen">
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">File Name</span>
+                                    <strong id="file-name" class="spec-value">-</strong>
                                 </div>
-                                <div class="spec-row">
-                                    <span class="spec-key">File Size</span>
-                                    <strong id="file-size" class="spec-val">-</strong>
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">File Size</span>
+                                    <strong id="file-size" class="spec-value">-</strong>
                                 </div>
-                                <div class="spec-row">
-                                    <span class="spec-key">Canvas Resolution</span>
-                                    <strong id="file-dims" class="spec-val">-</strong>
+                                <div class="meta-spec-item">
+                                    <span class="spec-label">Dimensions</span>
+                                    <strong id="file-dims" class="spec-value">-</strong>
                                 </div>
                             </div>
 
-                            <div class="mode-selection-block">
-                                <label for="outscale-select" class="control-label">SELECT RESTORATION PIPELINE</label>
-                                <div class="select-container">
-                                    <select id="outscale-select" class="editorial-select">
+                            <div class="mode-select-group">
+                                <label for="outscale-select" class="field-label-seagreen">RESTORATION MODE</label>
+                                <div class="select-wrapper">
+                                    <select id="outscale-select" class="studio-select-seagreen">
                                         <option value="4" selected>Ultra Quality (4x Super-Resolution + GFPGAN)</option>
                                         <option value="2">Fast Mode (2x Upscaling — Accelerated Pipeline)</option>
                                     </select>
-                                    <div class="arrow-indicator">
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                                    <div class="select-arrow">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="button-stack">
-                                <button id="restore-btn" class="btn btn-editorial-primary btn-full">
+                            <div class="action-btn-stack">
+                                <button id="restore-btn" class="btn btn-seagreen-primary btn-full">
                                     <span>Execute Restoration Engine</span>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </button>
-                                <button id="cancel-btn" class="btn btn-editorial-ghost btn-full">Select Different Image</button>
+                                <button id="cancel-btn" class="btn btn-seagreen-secondary btn-full">Select Different Image</button>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
             <!-- Processing Section -->
-            <section id="processing-section" class="section-editorial hidden" aria-label="Neural Processing">
-                <div class="editorial-block processing-workbench">
-                    
-                    <div class="processing-preview-box">
+            <section id="processing-section" class="section-block hidden" aria-label="Neural Processing">
+                <div class="studio-card processing-card-seagreen">
+                    <div class="processing-thumb-container">
                         <img id="processing-thumbnail" alt="Artwork thumbnail being restored" />
-                        <div class="scan-beam-indicator"></div>
+                        <div class="laser-scan-line-seagreen"></div>
                     </div>
 
-                    <div class="processing-meta-content">
-                        <div class="pipeline-badge">
-                            <span class="status-pulse-dot"></span> PIPELINE IN PROGRESS
+                    <div class="processing-content">
+                        <div class="processing-tag-seagreen">
+                            <span class="pulse-dot-teal"></span> NEURAL PIPELINE ENGAGED
                         </div>
-                        <h2 class="processing-title">Restoring Artwork Image...</h2>
-                        <p class="processing-subtitle" id="processing-phase-text">Step 1/3: Analyzing canvas &amp; scratch artifacts...</p>
+                        <h2 class="processing-heading">Restoring Artwork Image...</h2>
+                        <p class="processing-subtext" id="processing-phase-text">Step 1/3: Analyzing canvas &amp; scratch artifacts...</p>
                         
-                        <div class="pipeline-stages">
-                            <div class="stage-tag active" id="pstep-1">
-                                <span class="stage-num">01</span>
-                                <span class="stage-label">CANVAS ANALYSIS</span>
+                        <div class="pipeline-steps-row">
+                            <div class="step-pill-seagreen active" id="pstep-1">
+                                <span class="step-num">01</span>
+                                <span class="step-text">CANVAS ANALYSIS</span>
                             </div>
-                            <div class="stage-tag" id="pstep-2">
-                                <span class="stage-num">02</span>
-                                <span class="stage-label">REAL-ESRGAN 4X</span>
+                            <div class="step-pill-seagreen" id="pstep-2">
+                                <span class="step-num">02</span>
+                                <span class="step-text">REAL-ESRGAN 4X</span>
                             </div>
-                            <div class="stage-tag" id="pstep-3">
-                                <span class="stage-num">03</span>
-                                <span class="stage-label">GFPGAN RECOVERY</span>
+                            <div class="step-pill-seagreen" id="pstep-3">
+                                <span class="step-num">03</span>
+                                <span class="step-text">GFPGAN RECOVERY</span>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
 
-            <!-- Restoration Result Section -->
-            <section id="result-section" class="section-editorial hidden" aria-label="Restoration Result">
-                
-                <div class="result-top-bar">
+            <!-- Result Section -->
+            <section id="result-section" class="section-block hidden" aria-label="Restoration Result">
+                <div class="result-header">
                     <div>
-                        <span class="section-eyebrow">RESTORATION COMPLETE</span>
+                        <span class="card-label-seagreen label-mint">RESTORATION COMPLETE</span>
                         <h2 class="result-heading">Restored Masterpiece Reveal</h2>
                     </div>
                     
-                    <div class="mode-toggle-group" role="group" aria-label="Comparison View Mode">
-                        <button type="button" id="mode-slider-btn" class="toggle-mode-btn active" aria-pressed="true">Interactive Slider</button>
-                        <button type="button" id="mode-side-btn" class="toggle-mode-btn" aria-pressed="false">Side-by-Side</button>
+                    <div class="toggle-switch-group-seagreen" role="group" aria-label="Comparison View Mode">
+                        <button type="button" id="mode-slider-btn" class="toggle-btn-seagreen active" aria-pressed="true">Interactive Slider</button>
+                        <button type="button" id="mode-side-btn" class="toggle-btn-seagreen" aria-pressed="false">Side-by-Side</button>
                     </div>
                 </div>
 
                 <!-- Slider View -->
-                <div id="slider-view-container" class="slider-reveal-stage">
+                <div id="slider-view-container" class="slider-display-box-seagreen">
                     <div class="comparison-wrapper" id="comparison-wrapper">
                         <img id="before-image" class="comparison-img" alt="Original artwork before restoration" />
                         <img id="after-image" class="comparison-img comparison-after" alt="Restored artwork after AI processing" />
@@ -274,75 +285,72 @@
                         <div class="comparison-slider" id="comparison-slider" role="slider"
                              aria-label="Comparison slider position" aria-valuemin="0" aria-valuemax="100"
                              aria-valuenow="50" tabindex="0">
-                            <div class="slider-line"></div>
-                            <div class="slider-handle">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                            <div class="slider-divider-line"></div>
+                            <div class="slider-handle-pill-seagreen">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
                                     <path d="M8 5l-5 7 5 7V5zm8 0v14l5-7-5-7z"/>
                                 </svg>
                             </div>
                         </div>
-                        <span class="comparison-label label-before">ORIGINAL CANVAS</span>
-                        <span class="comparison-label label-after">RESTORED MASTER</span>
+                        <span class="label-badge-seagreen label-before">ORIGINAL CANVAS</span>
+                        <span class="label-badge-seagreen label-after">RESTORED MASTER</span>
                     </div>
                 </div>
 
                 <!-- Side-by-Side View -->
-                <div id="side-view-container" class="side-by-side-grid hidden">
-                    <div class="side-panel-card">
-                        <div class="side-header">ORIGINAL ARTWORK</div>
-                        <div class="side-img-box">
+                <div id="side-view-container" class="side-display-grid hidden">
+                    <div class="side-view-card-seagreen">
+                        <div class="side-card-header-seagreen">ORIGINAL ARTWORK</div>
+                        <div class="side-img-wrapper">
                             <img id="side-before-image" alt="Original artwork" />
                         </div>
                     </div>
-                    <div class="side-panel-card">
-                        <div class="side-header">RESTORED MASTER</div>
-                        <div class="side-img-box">
+                    <div class="side-view-card-seagreen">
+                        <div class="side-card-header-seagreen">RESTORED MASTER</div>
+                        <div class="side-img-wrapper">
                             <img id="side-after-image" alt="Restored master" />
                         </div>
                     </div>
                 </div>
 
                 <!-- Technical Details -->
-                <div class="result-technical-specs" id="result-details"></div>
+                <div class="result-details-seagreen" id="result-details"></div>
 
                 <!-- Actions -->
-                <div class="result-actions">
-                    <button id="download-btn" class="btn btn-editorial-dark btn-large">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span>Download Restored Masterpiece</span>
+                <div class="result-actions-row">
+                    <button id="download-btn" class="btn btn-seagreen-primary btn-large">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span>Download Restored Master</span>
                     </button>
-                    <button id="new-image-btn" class="btn btn-editorial-ghost">Restore Another Image</button>
+                    <button id="new-image-btn" class="btn btn-seagreen-secondary">Restore Another Image</button>
                 </div>
-
             </section>
 
             <!-- Error Section -->
-            <section id="error-section" class="section-editorial hidden" aria-label="Error State">
-                <div class="editorial-block error-display">
-                    <div class="error-mark">!</div>
+            <section id="error-section" class="section-block hidden" aria-label="Error State">
+                <div class="studio-card error-card-seagreen">
+                    <div class="error-badge-icon-seagreen">!</div>
                     <h2 class="error-title">Restoration Interrupted</h2>
-                    <p id="error-message" class="error-details"></p>
-                    <button id="retry-btn" class="btn btn-editorial-primary">Return to Studio</button>
+                    <p id="error-message" class="error-subtext"></p>
+                    <button id="retry-btn" class="btn btn-seagreen-primary">Return to Studio</button>
                 </div>
             </section>
-
         </main>
 
         <!-- Footer -->
-        <footer class="studio-footer">
-            <div class="footer-container">
-                <div class="footer-brand-strip">
+        <footer class="studio-footer-seagreen">
+            <div class="footer-inner">
+                <div class="footer-brand-line">
                     <span class="footer-logo">ReStory</span>
-                    <span class="footer-sep">&bull;</span>
+                    <span class="footer-divider">&bull;</span>
                     <span class="footer-tagline">ReStore the art in your images</span>
                 </div>
-                <p class="footer-models">
+                <p class="footer-tech">
                     Powered by <strong>Real-ESRGAN</strong> (neural super-resolution) &amp; <strong>GFPGAN</strong> (facial recovery)
                 </p>
-                <p class="footer-copyright">&copy; ReStory Art Conservation Studio &bull; Built with PyTorch, Flask &amp; OpenCV</p>
+                <p class="footer-copy">&copy; ReStory Art Conservation Studio &bull; Built with PyTorch, Flask &amp; OpenCV</p>
             </div>
         </footer>
-
     </div>
 
     <script src="/static/js/app.js"></script>
