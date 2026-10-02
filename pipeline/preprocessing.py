@@ -29,8 +29,8 @@ def preprocess_image(img_bgr: np.ndarray) -> np.ndarray:
     if h < 16 or w < 16:
         raise ValueError(f"Image dimensions ({w}x{h}) are too small. Minimum 16x16 required.")
 
-    # Cap max input dimension to 384px to guarantee execution under 35s on CPU
-    MAX_DIM = 384
+    # Cap max input dimension to 256px to guarantee execution under memory limits on CPU
+    MAX_DIM = 256
     if h > MAX_DIM or w > MAX_DIM:
         scale = float(MAX_DIM) / max(h, w)
         new_w, new_h = max(16, int(w * scale)), max(16, int(h * scale))

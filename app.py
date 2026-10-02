@@ -36,9 +36,8 @@ def create_app(config_class=Config):
     os.makedirs(app.config.get('OUTPUT_FOLDER', 'outputs'), exist_ok=True)
     os.makedirs(app.config.get('MODEL_DIR', 'weights'), exist_ok=True)
 
-    # Initialize ModelManager (lazy + async background preloading)
+    # Initialize ModelManager (lazy loading on demand)
     app.model_manager = ModelManager(config=app.config)
-    app.model_manager.preload_async()
     logger.info(f"App initialized — device: {app.model_manager.get_device()}")
 
     # Register blueprints

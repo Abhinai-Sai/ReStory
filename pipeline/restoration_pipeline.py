@@ -2,6 +2,7 @@
 import os
 import time
 import logging
+import gc
 from typing import Dict, Any
 
 import cv2
@@ -80,10 +81,12 @@ class RestorationPipeline:
             if faces_present:
                 t0 = time.time()
                 try:
+                    # Unload RealESRGAN to free up ~67MB before loading GFPGAN (~348MB)
+                    if str(self.model_manager.get_device()) == 'cpu':
+                        self.model_manager.unload_realesrgan()
                     gfpgan = self.model_manager.get_gfpgan()
-                    realesrgan_model = self.model_manager.get_realesrgan()
                     face_result, had_faces = gfpgan.enhance_faces(
-                        enhanced_img, realesrgan_model=realesrgan_model
+                        enhanced_img, realesrgan_model=None
                     )
                     if had_faces and face_result is not None:
                         enhanced_img = face_result
@@ -134,3 +137,5 @@ class RestorationPipeline:
         except Exception as e:
             logger.error(f"Pipeline error: {e}", exc_info=True)
             return {"success": False, "error": str(e)}
+        finally:
+            gc.collect()

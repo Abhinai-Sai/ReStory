@@ -2,6 +2,7 @@
 import os
 import logging
 import threading
+import gc
 import torch
 
 logger = logging.getLogger(__name__)
@@ -101,19 +102,25 @@ class ModelManager:
             return self._gfpgan is not None
         return False
 
-    def cleanup(self):
-        logger.info("Cleaning up models...")
+    def unload_realesrgan(self):
         with self._realesrgan_lock:
             if self._realesrgan is not None:
                 del self._realesrgan
                 self._realesrgan = None
+        gc.collect()
 
+    def unload_gfpgan(self):
         with self._gfpgan_lock:
             if self._gfpgan is not None:
                 del self._gfpgan
                 self._gfpgan = None
+        gc.collect()
 
+    def cleanup(self):
+        logger.info("Cleaning up models...")
+        self.unload_realesrgan()
+        self.unload_gfpgan()
         if torch.cuda.is_available():
             torch.cuda.empty_cache()
-
+        gc.collect()
         logger.info("Cleanup complete.")
