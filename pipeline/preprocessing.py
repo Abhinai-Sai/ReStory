@@ -29,13 +29,13 @@ def preprocess_image(img_bgr: np.ndarray) -> np.ndarray:
     if h < 16 or w < 16:
         raise ValueError(f"Image dimensions ({w}x{h}) are too small. Minimum 16x16 required.")
 
-    # Cap max input dimension to 480px to guarantee 1-pass execution under 15s on CPU while yielding 1920px HD output
-    MAX_DIM = 480
+    # Cap max input dimension to 384px to guarantee sub-10s execution on CPU while yielding 1536px HD output
+    MAX_DIM = 384
     if h > MAX_DIM or w > MAX_DIM:
         scale = float(MAX_DIM) / max(h, w)
         new_w, new_h = max(16, int(w * scale)), max(16, int(h * scale))
         img_bgr = cv2.resize(img_bgr, (new_w, new_h), interpolation=cv2.INTER_AREA)
-        logger.info(f"Pre-scaled image from {w}x{h} to {new_w}x{new_h} for high speed 1-pass processing")
+        logger.info(f"Pre-scaled image from {w}x{h} to {new_w}x{new_h} for ultra-fast sub-10s processing")
 
     # Ensure uint8 dtype
     if img_bgr.dtype != np.uint8:

@@ -25,6 +25,10 @@ class ModelManager:
         if self.device.type == 'cpu':
             num_cores = os.cpu_count() or 4
             torch.set_num_threads(num_cores)
+            try:
+                torch.set_num_interop_threads(2)
+            except Exception:
+                pass
             logger.info(f"PyTorch CPU threads set to {num_cores}")
 
         logger.info(f"ModelManager initialized — device: {self.device}, weights: {self.weights_dir}")
