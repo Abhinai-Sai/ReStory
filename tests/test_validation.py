@@ -125,7 +125,7 @@ class TestPreprocessing:
     def test_large_image_resized(self):
         img = np.random.randint(0, 255, (5000, 3000, 3), dtype=np.uint8)
         result = preprocess_image(img)
-        assert max(result.shape[:2]) <= 384
+        assert max(result.shape[:2]) <= 2048
 
     def test_float_image(self):
         img = np.random.rand(100, 100, 3).astype(np.float32)

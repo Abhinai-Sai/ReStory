@@ -81,12 +81,10 @@ class RestorationPipeline:
             if faces_present:
                 t0 = time.time()
                 try:
-                    # Unload RealESRGAN to free up ~67MB before loading GFPGAN (~348MB)
-                    if str(self.model_manager.get_device()) == 'cpu':
-                        self.model_manager.unload_realesrgan()
                     gfpgan = self.model_manager.get_gfpgan()
+                    realesrgan_model = self.model_manager.get_realesrgan()
                     face_result, had_faces = gfpgan.enhance_faces(
-                        enhanced_img, realesrgan_model=None
+                        enhanced_img, realesrgan_model=realesrgan_model
                     )
                     if had_faces and face_result is not None:
                         enhanced_img = face_result

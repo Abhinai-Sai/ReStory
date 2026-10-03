@@ -35,7 +35,7 @@ class GFPGANWrapper:
                 try:
                     logger.info(f"Attempting GFPGAN download from {url}...")
                     req = urllib.request.Request(url, headers=headers)
-                    with urllib.request.urlopen(req, timeout=10) as response, open(self.weights_path, 'wb') as out_file:
+                    with urllib.request.urlopen(req, timeout=120) as response, open(self.weights_path, 'wb') as out_file:
                         data = response.read()
                         out_file.write(data)
 
