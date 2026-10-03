@@ -225,6 +225,7 @@
         const outscaleSelect = $('#outscale-select');
         if (outscaleSelect) {
             formData.append('outscale', outscaleSelect.value);
+            formData.append('enable_faces', outscaleSelect.value === '4' ? 'true' : 'false');
         }
 
         try {

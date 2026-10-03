@@ -61,11 +61,15 @@ def restore_image():
         except (ValueError, TypeError):
             outscale = 2
 
-        enable_faces = (
-            request.form.get('enable_faces', 'false').lower() in ('true', '1', 'yes') or
-            request.form.get('face_restoration', 'false').lower() in ('true', '1', 'yes') or
-            request.form.get('enable_gfpgan', 'false').lower() in ('true', '1', 'yes')
-        )
+        has_explicit_enable = 'enable_faces' in request.form or 'face_restoration' in request.form or 'enable_gfpgan' in request.form
+        if has_explicit_enable:
+            enable_faces = (
+                request.form.get('enable_faces', 'false').lower() in ('true', '1', 'yes') or
+                request.form.get('face_restoration', 'false').lower() in ('true', '1', 'yes') or
+                request.form.get('enable_gfpgan', 'false').lower() in ('true', '1', 'yes')
+            )
+        else:
+            enable_faces = (outscale == 4)
 
         # Run restoration pipeline
         start_time = time.time()
