@@ -89,9 +89,9 @@ class GFPGANWrapper:
             cropped_faces, restored_faces, restored_img = self.gfpganer.enhance(
                 img_bgr,
                 has_aligned=False,
-                only_center_face=True,
+                only_center_face=False,
                 paste_back=True,
-                weight=0.5
+                weight=0.7
             )
             
             has_faces = restored_faces is not None and len(restored_faces) > 0

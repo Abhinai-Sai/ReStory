@@ -29,8 +29,8 @@ def preprocess_image(img_bgr: np.ndarray) -> np.ndarray:
     if h < 16 or w < 16:
         raise ValueError(f"Image dimensions ({w}x{h}) are too small. Minimum 16x16 required.")
 
-    # Cap max input dimension to 2048px for full resolution high-quality AI restoration
-    MAX_DIM = 2048
+    # Cap max input dimension to 600px to guarantee execution under 60 seconds on CPU while yielding 2400px output
+    MAX_DIM = 600
     if h > MAX_DIM or w > MAX_DIM:
         scale = float(MAX_DIM) / max(h, w)
         new_w, new_h = max(16, int(w * scale)), max(16, int(h * scale))

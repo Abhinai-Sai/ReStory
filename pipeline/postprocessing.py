@@ -24,6 +24,11 @@ def postprocess_image(img_bgr: np.ndarray, original_format='png') -> np.ndarray:
     elif len(img_bgr.shape) == 3 and img_bgr.shape[2] == 4:
         img_bgr = cv2.cvtColor(img_bgr, cv2.COLOR_BGRA2BGR)
 
+    # Apply subtle adaptive detail sharpening (unsharp mask) for enhanced clarity
+    gaussian = cv2.GaussianBlur(img_bgr, (0, 0), 2.0)
+    sharpened = cv2.addWeighted(img_bgr, 1.25, gaussian, -0.25, 0)
+    img_bgr = np.clip(sharpened, 0, 255).astype(np.uint8)
+
     return img_bgr
 
 def encode_image_to_bytes(img_bgr: np.ndarray, format='png') -> bytes:
