@@ -1,17 +1,25 @@
 """Add StyleGAN2Generator stub to the basicsr shim."""
 import os, sys
 
-site_packages = None
+site_packages_list = []
 for p in sys.path:
-    if 'site-packages' in p and os.path.isdir(p):
-        site_packages = p
-        break
+    if 'site-packages' in p and os.path.isdir(p) and p not in site_packages_list:
+        site_packages_list.append(p)
 
-stylegan_path = os.path.join(site_packages, 'basicsr', 'archs', 'stylegan2_arch.py')
+py313_sp = r'C:\Users\Abhinai\AppData\Local\Programs\Python\Python313\Lib\site-packages'
+if os.path.isdir(py313_sp) and py313_sp not in site_packages_list:
+    site_packages_list.append(py313_sp)
 
-# Read existing content and append StyleGAN2Generator
-with open(stylegan_path, 'r') as f:
-    content = f.read()
+local_dir = os.path.dirname(os.path.abspath(__file__))
+if local_dir not in site_packages_list:
+    site_packages_list.append(local_dir)
+
+for site_packages in site_packages_list:
+    stylegan_path = os.path.join(site_packages, 'basicsr', 'archs', 'stylegan2_arch.py')
+    if not os.path.exists(stylegan_path):
+        continue
+    with open(stylegan_path, 'r') as f:
+        content = f.read()
 
 if 'StyleGAN2Generator' not in content:
     stub = '''
