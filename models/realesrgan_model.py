@@ -79,18 +79,18 @@ class RealESRGANWrapper:
         logger.info("Initializing RRDBNet architecture...")
         model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
 
-        half_precision = self.device.type == 'cuda'
-        # On GPU, use 512 tile size. On CPU, use 0 (untiled single pass) for maximum 1-pass speed under 15s.
-        tile_size = 512 if self.device.type == 'cuda' else 0
+        half_precision = False
+        tile_size = 128
+        tile_pad = 10
 
-        logger.info(f"Initializing RealESRGANer (half={half_precision}, tile={tile_size}, device={self.device})...")
+        logger.info(f"Initializing RealESRGANer (half={half_precision}, tile={tile_size}, tile_pad={tile_pad}, device={self.device})...")
         try:
             self.upsampler = RealESRGANer(
                 scale=4,
                 model_path=self.weights_path,
                 model=model,
                 tile=tile_size,
-                tile_pad=10,
+                tile_pad=tile_pad,
                 pre_pad=0,
                 half=half_precision,
                 device=self.device
@@ -101,20 +101,13 @@ class RealESRGANWrapper:
             raise
 
     @torch.inference_mode()
-    def enhance(self, img_bgr, outscale=4):
+    def enhance(self, img_bgr, outscale=2):
         """Enhance an image using Real-ESRGAN."""
         if self.upsampler is None:
             raise RuntimeError("Real-ESRGAN model is not loaded.")
 
         h, w = img_bgr.shape[:2]
-        # On CPU, if image exceeds 800px, use tile=512 to protect RAM; otherwise untiled (0) for 1-pass speed
-        if self.device.type == 'cpu':
-            if h > 800 or w > 800:
-                self.upsampler.tile_size = 512
-            else:
-                self.upsampler.tile_size = 0
-
-        tile_used = getattr(self.upsampler, 'tile_size', 0)
+        tile_used = getattr(self.upsampler, 'tile_size', 128)
         logger.info(f"Enhancing image ({w}x{h}) with Real-ESRGAN (tile={tile_used}, outscale={outscale})...")
         try:
             output, _ = self.upsampler.enhance(img_bgr, outscale=outscale)

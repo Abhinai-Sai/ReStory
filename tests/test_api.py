@@ -79,6 +79,23 @@ class TestRestoreEndpoint:
         assert 'success' in data
         assert 'error' in data or 'message' in data
 
+    def test_concurrency_lock_returns_429(self, client):
+        from routes.api import restoration_lock
+        # Acquire lock manually to simulate active restoration
+        acquired = restoration_lock.acquire(blocking=False)
+        assert acquired is True
+        try:
+            img_bytes = make_test_image_bytes(50, 50)
+            resp = client.post('/api/restore', data={
+                'image': (io.BytesIO(img_bytes), 'test.png')
+            }, content_type='multipart/form-data')
+            assert resp.status_code == 429
+            data = resp.get_json()
+            assert data['success'] is False
+            assert 'Server busy' in data['error'] or 'Another restoration' in data['message']
+        finally:
+            restoration_lock.release()
+
 
 class TestResultEndpoint:
     def test_not_found(self, client):

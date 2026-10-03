@@ -38,13 +38,15 @@ def download_models(weights_dir='weights'):
             logger.info(f"Successfully downloaded {filename}.")
             
             size_mb = os.path.getsize(filepath) / (1024 * 1024)
-            if size_mb < 50:
-                logger.warning(f"Downloaded file {filename} seems too small ({size_mb:.2f} MB). Might be corrupted.")
+            if size_mb < 10:
+                logger.error(f"Downloaded file {filename} is too small ({size_mb:.2f} MB) — download failed or corrupted.")
+                sys.exit(1)
             else:
                 logger.info(f"Verified file size: {size_mb:.2f} MB")
                 
         except Exception as e:
             logger.error(f"\nFailed to download {filename}: {e}")
+            sys.exit(1)
 
 if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.abspath(__file__))

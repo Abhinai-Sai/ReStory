@@ -15,4 +15,14 @@ class Config:
 
     DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
+    # Render Free Tier Resource Strategy Settings
+    MAX_INPUT_DIMENSION = 256
+    ESRGAN_SCALE = 2
+    ESRGAN_TILE = 128
+    TILE_PAD = 10
+    HALF = False
+    WORKERS = 1
+    THREADS = 1
+    MAX_CONCURRENT_RESTORATIONS = 1
+
     SECRET_KEY = os.environ.get('SECRET_KEY', 'default-secret-key-change-in-production')

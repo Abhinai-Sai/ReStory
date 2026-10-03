@@ -22,16 +22,16 @@ class RestorationPipeline:
     def __init__(self, model_manager):
         self.model_manager = model_manager
 
-    def restore(self, input_path: str, output_dir: str = "outputs", outscale: int = 4) -> Dict[str, Any]:
+    def restore(self, input_path: str, output_dir: str = "outputs", outscale: int = 2, enable_faces: bool = False) -> Dict[str, Any]:
         """
         Full restoration pipeline:
-        validate → decode → preprocess → Real-ESRGAN → detect faces
-        → GFPGAN (if applicable) → postprocess → save
+        validate → decode → preprocess → Real-ESRGAN → optional GFPGAN → postprocess → save
 
         Args:
             input_path: Path to the uploaded image file on disk.
             output_dir: Directory to save the restored output.
-            outscale: Output upscaling factor (2 for Fast Mode, 4 for High Quality).
+            outscale: Output upscaling factor (default 2 for Render Free Tier).
+            enable_faces: Whether to run optional face restoration with GFPGAN.
 
         Returns:
             Dict with output_id, output_path, success status, and details.
@@ -71,29 +71,30 @@ class RestorationPipeline:
                 enhanced_img = cv2.addWeighted(enhanced_img, 1.3, gaussian, -0.3, 0)
             timing['realesrgan'] = round(time.time() - t0, 3)
 
-            # 4. Detect faces
-            t0 = time.time()
-            faces_present = has_faces(enhanced_img)
-            timing['face_detect'] = round(time.time() - t0, 3)
-            logger.info(f"Face detection: {'faces found' if faces_present else 'no faces'}")
-
-            # 5. GFPGAN face restoration (if applicable)
-            if faces_present:
+            faces_present = False
+            # 4. Optional GFPGAN face restoration (ONLY if requested)
+            if enable_faces:
                 t0 = time.time()
-                try:
-                    gfpgan = self.model_manager.get_gfpgan()
-                    realesrgan_model = self.model_manager.get_realesrgan()
-                    face_result, had_faces = gfpgan.enhance_faces(
-                        enhanced_img, realesrgan_model=realesrgan_model
-                    )
-                    if had_faces and face_result is not None:
-                        enhanced_img = face_result
-                        logger.info("GFPGAN face restoration applied successfully.")
-                    else:
-                        logger.info("GFPGAN returned no face results, using Real-ESRGAN output.")
-                except Exception as e:
-                    logger.warning(f"GFPGAN failed, falling back to Real-ESRGAN result: {e}")
-                timing['gfpgan'] = round(time.time() - t0, 3)
+                faces_present = has_faces(enhanced_img)
+                timing['face_detect'] = round(time.time() - t0, 3)
+                logger.info(f"Face detection: {'faces found' if faces_present else 'no faces'}")
+
+                if faces_present:
+                    t0 = time.time()
+                    try:
+                        gfpgan = self.model_manager.get_gfpgan()
+                        realesrgan_model = self.model_manager.get_realesrgan()
+                        face_result, had_faces = gfpgan.enhance_faces(
+                            enhanced_img, realesrgan_model=realesrgan_model
+                        )
+                        if had_faces and face_result is not None:
+                            enhanced_img = face_result
+                            logger.info("GFPGAN face restoration applied successfully.")
+                        else:
+                            logger.info("GFPGAN returned no face results, using Real-ESRGAN output.")
+                    except Exception as e:
+                        logger.warning(f"GFPGAN failed, falling back to Real-ESRGAN result: {e}")
+                    timing['gfpgan'] = round(time.time() - t0, 3)
 
             # 6. Post-process
             t0 = time.time()

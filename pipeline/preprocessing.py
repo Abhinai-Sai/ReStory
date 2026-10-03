@@ -24,18 +24,21 @@ def preprocess_image(img_bgr: np.ndarray) -> np.ndarray:
     elif len(img_bgr.shape) == 2 or (len(img_bgr.shape) == 3 and img_bgr.shape[2] == 1):
         img_bgr = cv2.cvtColor(img_bgr, cv2.COLOR_GRAY2BGR)
 
-    # Validate dimensions (min 16x16, max 4096x4096)
+    # Validate dimensions (min 16x16, max 10000x10000)
     h, w = img_bgr.shape[:2]
     if h < 16 or w < 16:
         raise ValueError(f"Image dimensions ({w}x{h}) are too small. Minimum 16x16 required.")
 
-    # Cap max input dimension to 384px to guarantee sub-10s execution on CPU while yielding 1536px HD output
-    MAX_DIM = 384
+    if h > 10000 or w > 10000:
+        raise ValueError(f"Image dimensions ({w}x{h}) exceed maximum allowed limit of 10000x10000.")
+
+    # Strict Render Free limit: cap max input dimension to 256px for memory safety
+    MAX_DIM = 256
     if h > MAX_DIM or w > MAX_DIM:
         scale = float(MAX_DIM) / max(h, w)
         new_w, new_h = max(16, int(w * scale)), max(16, int(h * scale))
         img_bgr = cv2.resize(img_bgr, (new_w, new_h), interpolation=cv2.INTER_AREA)
-        logger.info(f"Pre-scaled image from {w}x{h} to {new_w}x{new_h} for ultra-fast sub-10s processing")
+        logger.info(f"Pre-scaled image from {w}x{h} to {new_w}x{new_h} for Render Free Tier limits")
 
     # Ensure uint8 dtype
     if img_bgr.dtype != np.uint8:
