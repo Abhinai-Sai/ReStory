@@ -1145,3 +1145,438 @@
 2026-10-03 01:38:39,581 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
 2026-10-03 01:38:51,343 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:38:51] "POST /api/restore HTTP/1.1" 200 -
 2026-10-03 01:38:52,789 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 01:38:52] "GET /api/result/1d32677b-88f5-4c60-94fd-c26c93b610f6?t=1790971731618 HTTP/1.1" 200 -
+2026-10-03 02:39:54,264 - models.model_manager - INFO - PyTorch CPU threads set to 2
+2026-10-03 02:39:54,265 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 02:39:54,265 - app - INFO - App initialized — device: cpu
+2026-10-03 02:56:25,210 - models.model_manager - INFO - PyTorch CPU threads set to 2
+2026-10-03 02:56:25,211 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 02:56:25,211 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 02:56:25,248 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 02:56:25,248 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 02:58:10,270 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 02:58:10] "GET / HTTP/1.1" 200 -
+2026-10-03 02:58:48,046 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 02:58:48] "GET / HTTP/1.1" 200 -
+2026-10-03 12:25:44,104 - models.model_manager - INFO - PyTorch CPU threads set to 2
+2026-10-03 12:25:44,106 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 12:25:44,106 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 12:25:44,146 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 12:25:44,146 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 12:26:06,596 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:06] "GET / HTTP/1.1" 200 -
+2026-10-03 12:26:27,542 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:27] "GET / HTTP/1.1" 200 -
+2026-10-03 12:26:28,014 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:28] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 12:26:28,016 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:28] "GET /static/js/app.js HTTP/1.1" 200 -
+2026-10-03 12:26:28,017 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:28] "GET /static/css/style.css HTTP/1.1" 200 -
+2026-10-03 12:26:28,642 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:28] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-10-03 12:26:39,608 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 12:26:39,609 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 12:26:39,663 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 227x256 for speed optimization
+2026-10-03 12:26:39,664 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (256, 227, 3), 'dtype': 'uint8', 'channels': 3, 'height': 256, 'width': 227}
+2026-10-03 12:26:39,665 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 12:26:39,713 - models.model_manager - ERROR - Failed to load Real-ESRGAN model: expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)
+2026-10-03 12:26:39,714 - pipeline.restoration_pipeline - WARNING - Real-ESRGAN unavailable (expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)), using high-quality Lanczos4 super-resolution fallback
+2026-10-03 12:26:39,795 - pipeline.face_processing - INFO - Skin-tone heuristic: 50.6% skin pixels — likely has faces
+2026-10-03 12:26:39,796 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 12:26:40,530 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 12:26:40,550 - models.model_manager - ERROR - Failed to load GFPGAN model: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:26:40,550 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:26:41,197 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:41] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 12:26:41,225 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:26:41] "GET /api/result/f4e5fd96-a1e5-43b8-90ef-a442bd28ffd7?t=1791010601202 HTTP/1.1" 200 -
+2026-10-03 12:27:01,039 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (251, 201, 3), 'dtype': 'uint8', 'channels': 3, 'height': 251, 'width': 201}
+2026-10-03 12:27:01,042 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (251, 201, 3), 'dtype': 'uint8', 'channels': 3, 'height': 251, 'width': 201}
+2026-10-03 12:27:01,042 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (251, 201, 3), 'dtype': 'uint8', 'channels': 3, 'height': 251, 'width': 201}
+2026-10-03 12:27:01,042 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 12:27:01,048 - models.model_manager - ERROR - Failed to load Real-ESRGAN model: expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)
+2026-10-03 12:27:01,048 - pipeline.restoration_pipeline - WARNING - Real-ESRGAN unavailable (expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)), using high-quality Lanczos4 super-resolution fallback
+2026-10-03 12:27:01,066 - pipeline.face_processing - INFO - Skin-tone heuristic: 37.9% skin pixels — likely has faces
+2026-10-03 12:27:01,067 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 12:27:01,184 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 12:27:01,187 - models.model_manager - ERROR - Failed to load GFPGAN model: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:27:01,187 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:27:01,295 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:27:01] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 12:27:01,303 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:27:01] "GET /api/result/885b2d2f-3091-4dad-976e-f0d0eddbebd4?t=1791010621298 HTTP/1.1" 200 -
+2026-10-03 12:27:19,021 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 12:27:19,021 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 12:27:19,022 - pipeline.preprocessing - INFO - Pre-scaled image from 678x452 to 256x170 for speed optimization
+2026-10-03 12:27:19,022 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (170, 256, 3), 'dtype': 'uint8', 'channels': 3, 'height': 170, 'width': 256}
+2026-10-03 12:27:19,023 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 12:27:19,027 - models.model_manager - ERROR - Failed to load Real-ESRGAN model: expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)
+2026-10-03 12:27:19,027 - pipeline.restoration_pipeline - WARNING - Real-ESRGAN unavailable (expected an indented block after 'with' statement on line 42 (realesrgan_model.py, line 43)), using high-quality Lanczos4 super-resolution fallback
+2026-10-03 12:27:19,044 - pipeline.face_processing - INFO - Skin-tone heuristic: 48.5% skin pixels — likely has faces
+2026-10-03 12:27:19,046 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 12:27:19,143 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 12:27:19,147 - models.model_manager - ERROR - Failed to load GFPGAN model: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:27:19,147 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: expected an indented block after 'with' statement on line 38 (gfpgan_model.py, line 39)
+2026-10-03 12:27:19,268 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:27:19] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 12:27:19,281 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:27:19] "GET /api/result/b4bf8f3c-603d-46a9-9d2b-2657d1babd90?t=1791010639270 HTTP/1.1" 200 -
+2026-10-03 12:38:23,521 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 12:38:23,545 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 12:38:23,556 - pipeline.preprocessing - INFO - Pre-scaled image from 300x200 to 256x170 for speed optimization
+2026-10-03 12:38:23,558 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (170, 256, 3), 'dtype': 'uint8', 'channels': 3, 'height': 170, 'width': 256}
+2026-10-03 12:38:23,561 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 12:38:23,776 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 12:38:33,948 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 12:38:34,370 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=256, device=cpu)...
+2026-10-03 12:38:35,030 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 12:38:35,031 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 12:38:35,033 - models.realesrgan_model - INFO - Enhancing image (256x170) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 12:39:04,940 - models.realesrgan_model - INFO - Enhancement complete — output shape: (680, 1024, 3)
+2026-10-03 12:39:04,976 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (680, 1024, 3), 'dtype': 'uint8', 'channels': 3, 'height': 680, 'width': 1024}
+2026-10-03 12:39:05,042 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.7% skin pixels — likely has faces
+2026-10-03 12:39:05,043 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 12:39:06,916 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 12:39:07,108 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 12:39:07,108 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 12:39:11,589 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 12:39:11,608 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 12:39:15,395 - models.gfpgan_model - INFO - No faces detected in the image.
+2026-10-03 12:39:15,398 - pipeline.restoration_pipeline - INFO - GFPGAN returned no face results, using Real-ESRGAN output.
+2026-10-03 12:39:16,252 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 12:39:16] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 13:08:59,097 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:08:59] "GET / HTTP/1.1" 200 -
+2026-10-03 13:08:59,251 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:08:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 13:08:59,254 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:08:59] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 13:08:59,257 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:08:59] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 13:09:27,728 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:09:27] "[31m[1mGET /api/restore HTTP/1.1[0m" 405 -
+2026-10-03 13:11:46,052 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:11:46] "GET / HTTP/1.1" 200 -
+2026-10-03 13:11:46,266 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:11:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 13:11:46,286 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:11:46] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 13:11:46,291 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:11:46] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 13:11:55,078 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:11:55,079 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:11:55,118 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 227x256 for speed optimization
+2026-10-03 13:11:55,122 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (256, 227, 3), 'dtype': 'uint8', 'channels': 3, 'height': 256, 'width': 227}
+2026-10-03 13:11:55,125 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 13:11:55,132 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 13:11:55,138 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 13:11:55,598 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=256, device=cpu)...
+2026-10-03 13:11:56,191 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 13:11:56,192 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 13:11:56,196 - models.realesrgan_model - INFO - Enhancing image (227x256) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 13:12:41,041 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1024, 908, 3)
+2026-10-03 13:12:41,059 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1024, 908, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1024, 'width': 908}
+2026-10-03 13:12:41,116 - pipeline.face_processing - INFO - Skin-tone heuristic: 64.0% skin pixels — likely has faces
+2026-10-03 13:12:41,116 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 13:12:42,363 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 13:13:22,064 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 13:13:24,149 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:13:24] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 13:13:24,200 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:13:24] "GET /api/result/c6ae6965-991a-4289-acb1-56f0f8bd4b24?t=1791013404163 HTTP/1.1" 200 -
+2026-10-03 13:47:32,995 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 13:47:32,997 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 13:47:33,000 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 13:47:33,056 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 13:47:33,057 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 13:47:53,629 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:47:53] "GET / HTTP/1.1" 200 -
+2026-10-03 13:47:54,390 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:47:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 13:47:54,448 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:47:54] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 13:47:54,451 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:47:54] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 13:48:06,684 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:48:06,684 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:48:06,718 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (1200, 1067, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1200, 'width': 1067}
+2026-10-03 13:48:06,723 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 13:48:06,751 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 13:48:11,494 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 13:48:11,793 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=256, device=cpu)...
+2026-10-03 13:48:12,657 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 13:48:12,658 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 13:48:12,660 - models.realesrgan_model - INFO - Enhancing image (1067x1200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 13:58:47,939 - models.realesrgan_model - INFO - Enhancement complete — output shape: (4800, 4268, 3)
+2026-10-03 13:58:48,000 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (4800, 4268, 3), 'dtype': 'uint8', 'channels': 3, 'height': 4800, 'width': 4268}
+2026-10-03 13:58:48,324 - pipeline.face_processing - INFO - Skin-tone heuristic: 69.8% skin pixels — likely has faces
+2026-10-03 13:58:48,339 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 13:58:48,342 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 13:58:48,625 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\AppData\Local\Programs\Python\Python313\Lib\site-packages\basicsr\archs\stylegan2_arch.py)
+2026-10-03 13:58:48,626 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\AppData\Local\Programs\Python\Python313\Lib\site-packages\basicsr\archs\stylegan2_arch.py)
+2026-10-03 13:58:54,538 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:58:54] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 13:58:54,796 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 13:58:54] "GET /api/result/6b08a311-5dba-4789-a6b1-ccda7d95e09d?t=1791016134633 HTTP/1.1" 200 -
+2026-10-03 13:59:22,492 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:59:22,493 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 13:59:22,500 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (1200, 1067, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1200, 'width': 1067}
+2026-10-03 13:59:22,505 - models.realesrgan_model - INFO - Enhancing image (1067x1200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 14:41:39,085 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 14:41:39,086 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 14:41:39,086 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 14:41:39,126 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 14:41:39,126 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 14:42:07,081 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:42:07,081 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:42:07,081 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:42:07,081 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 14:42:07,084 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 14:42:09,814 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 14:42:09,977 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=256, device=cpu)...
+2026-10-03 14:42:10,392 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 14:42:10,392 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 14:42:10,393 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 14:42:33,754 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 14:42:33,815 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 14:42:34,029 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 14:42:34,173 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 14:42:34,174 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 14:42:34,342 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 14:42:34,342 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 14:42:35,545 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 14:42:35] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 14:55:24,304 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 14:55:24,304 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 14:55:24,304 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 14:55:24,340 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 14:55:24,340 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 14:56:03,027 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:56:03,028 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:56:03,028 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 14:56:03,033 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 14:56:21,125 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 14:56:21,159 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 14:56:21,225 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 14:56:21,226 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 14:56:21,227 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 14:56:21,381 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 14:56:21,381 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 14:56:22,291 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 14:56:22] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:00:23,016 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 15:00:23,017 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 15:00:23,017 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 15:00:23,085 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 15:00:23,085 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 15:01:50,874 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 15:01:50,875 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 15:01:50,877 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 15:01:50,905 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 15:01:50,905 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 15:02:20,023 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:02:20] "GET / HTTP/1.1" 200 -
+2026-10-03 15:02:20,243 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:02:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 15:02:20,246 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:02:20] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 15:02:20,250 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:02:20] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 15:02:31,081 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:02:31,082 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:02:31,109 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (1200, 1067, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1200, 'width': 1067}
+2026-10-03 15:02:31,130 - models.realesrgan_model - INFO - Enhancing image (1067x1200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 15:08:14,733 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:14] "GET / HTTP/1.1" 200 -
+2026-10-03 15:08:14,882 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 15:08:14,900 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:14] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 15:08:14,917 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:14] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 15:08:17,160 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:17] "GET / HTTP/1.1" 200 -
+2026-10-03 15:08:17,241 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 15:08:17,328 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:17] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 15:08:17,363 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:17] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 15:08:26,514 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:08:26] "GET / HTTP/1.1" 200 -
+2026-10-03 15:09:12,018 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:09:12] "GET / HTTP/1.1" 200 -
+2026-10-03 15:09:12,135 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:09:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 15:09:12,152 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:09:12] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 15:09:12,165 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:09:12] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 15:09:26,725 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:09:26,731 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:09:26,753 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (1200, 1067, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1200, 'width': 1067}
+2026-10-03 15:09:26,772 - models.realesrgan_model - INFO - Enhancing image (1067x1200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 15:18:19,089 - models.realesrgan_model - INFO - Enhancement complete — output shape: (4800, 4268, 3)
+2026-10-03 15:18:19,152 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (4800, 4268, 3), 'dtype': 'uint8', 'channels': 3, 'height': 4800, 'width': 4268}
+2026-10-03 15:18:19,999 - pipeline.face_processing - INFO - Skin-tone heuristic: 63.0% skin pixels — likely has faces
+2026-10-03 15:18:20,025 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:18:20,028 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 15:18:20,291 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:18:20,293 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:18:37,793 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:18:37] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:24:37,393 - models.realesrgan_model - INFO - Enhancement complete — output shape: (4800, 4268, 3)
+2026-10-03 15:24:37,453 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (4800, 4268, 3), 'dtype': 'uint8', 'channels': 3, 'height': 4800, 'width': 4268}
+2026-10-03 15:24:37,791 - pipeline.face_processing - INFO - Skin-tone heuristic: 69.8% skin pixels — likely has faces
+2026-10-03 15:24:37,807 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:24:37,809 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 15:24:37,945 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:24:37,947 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:24:43,694 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:24:43] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:24:43,758 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:24:43] "GET /api/result/381a680b-24fc-4631-838e-261e385c1e6c?t=1791021283715 HTTP/1.1" 200 -
+2026-10-03 15:40:27,819 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:40:27,828 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:40:27,828 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:40:27,841 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 15:40:52,948 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 15:40:53,067 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 15:40:54,149 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 15:40:54,180 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:40:54,188 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 15:40:55,527 - models.model_manager - ERROR - Failed to load GFPGAN model: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:40:55,550 - pipeline.restoration_pipeline - WARNING - GFPGAN failed, falling back to Real-ESRGAN result: cannot import name 'StyleGAN2Generator' from 'basicsr.archs.stylegan2_arch' (C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\basicsr\archs\stylegan2_arch.py)
+2026-10-03 15:40:59,677 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:40:59] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:42:54,457 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 15:42:54,458 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 15:42:54,458 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 15:42:54,494 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 15:42:54,494 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 15:43:31,535 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:43:31] "GET / HTTP/1.1" 200 -
+2026-10-03 15:44:00,022 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:44:00] "GET / HTTP/1.1" 200 -
+2026-10-03 15:44:00,473 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:44:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 15:44:00,485 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:44:00] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 15:44:00,533 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:44:00] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 15:44:07,987 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:44:07,987 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:44:08,020 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 533x600 for high quality processing
+2026-10-03 15:44:08,021 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (600, 533, 3), 'dtype': 'uint8', 'channels': 3, 'height': 600, 'width': 533}
+2026-10-03 15:44:08,021 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 15:44:08,027 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 15:44:11,322 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 15:44:11,503 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=256, device=cpu)...
+2026-10-03 15:44:11,961 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 15:44:11,961 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 15:44:11,964 - models.realesrgan_model - INFO - Enhancing image (533x600) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 15:46:59,567 - models.realesrgan_model - INFO - Enhancement complete — output shape: (2400, 2132, 3)
+2026-10-03 15:46:59,621 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (2400, 2132, 3), 'dtype': 'uint8', 'channels': 3, 'height': 2400, 'width': 2132}
+2026-10-03 15:46:59,744 - pipeline.face_processing - INFO - Skin-tone heuristic: 66.0% skin pixels — likely has faces
+2026-10-03 15:46:59,748 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:46:59,752 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 15:47:00,252 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 15:47:00,252 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 15:47:04,117 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 15:47:04,152 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 15:47:45,435 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 15:47:52,394 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:47:52] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:47:52,468 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:47:52] "GET /api/result/53b7f661-2fef-470a-a4cb-0ee07ecc2482?t=1791022672418 HTTP/1.1" 200 -
+2026-10-03 15:48:16,984 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:48:16,984 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 15:48:16,997 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 533x600 for high quality processing
+2026-10-03 15:48:16,998 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (600, 533, 3), 'dtype': 'uint8', 'channels': 3, 'height': 600, 'width': 533}
+2026-10-03 15:48:17,000 - models.realesrgan_model - INFO - Enhancing image (533x600) with Real-ESRGAN (tile=256, outscale=2)...
+2026-10-03 15:51:00,495 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1200, 1066, 3)
+2026-10-03 15:51:00,512 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=2): {'shape': (1200, 1066, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1200, 'width': 1066}
+2026-10-03 15:51:00,538 - pipeline.face_processing - INFO - Skin-tone heuristic: 65.1% skin pixels — likely has faces
+2026-10-03 15:51:00,540 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:51:00,544 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 15:51:18,479 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 15:51:20,282 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:51:20] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:51:20,343 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:51:20] "GET /api/result/674a3075-42ee-4074-b025-894709f46198?t=1791022880304 HTTP/1.1" 200 -
+2026-10-03 15:54:51,297 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:54:51,298 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:54:51,298 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:54:51,302 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=256, outscale=4)...
+2026-10-03 15:55:13,782 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 15:55:13,795 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 15:55:13,853 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 15:55:13,854 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:55:13,858 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 15:55:17,653 - models.gfpgan_model - INFO - No faces detected in the image.
+2026-10-03 15:55:17,657 - pipeline.restoration_pipeline - INFO - GFPGAN returned no face results, using Real-ESRGAN output.
+2026-10-03 15:55:18,455 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:55:18] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 15:58:18,557 - models.model_manager - INFO - PyTorch CPU threads set to 8
+2026-10-03 15:58:18,558 - models.model_manager - INFO - ModelManager initialized — device: cpu, weights: C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights
+2026-10-03 15:58:18,558 - __main__ - INFO - App initialized — device: cpu
+2026-10-03 15:58:18,590 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.29.181:5000
+2026-10-03 15:58:18,591 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-10-03 15:58:48,527 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:58:48,527 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:58:48,527 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 15:58:48,528 - models.model_manager - INFO - Lazily loading Real-ESRGAN model...
+2026-10-03 15:58:48,538 - models.realesrgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\RealESRGAN_x4plus.pth
+2026-10-03 15:58:50,563 - models.realesrgan_model - INFO - Initializing RRDBNet architecture...
+2026-10-03 15:58:50,693 - models.realesrgan_model - INFO - Initializing RealESRGANer (half=False, tile=0, device=cpu)...
+2026-10-03 15:58:51,058 - models.realesrgan_model - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 15:58:51,059 - models.model_manager - INFO - Real-ESRGAN model loaded successfully.
+2026-10-03 15:58:51,059 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 15:59:08,141 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 15:59:08,142 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 15:59:08,185 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 15:59:08,186 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 15:59:08,187 - models.model_manager - INFO - Lazily loading GFPGAN model...
+2026-10-03 15:59:08,331 - models.gfpgan_model - INFO - Weights already exist at C:\Users\Abhinai\OneDrive\Desktop\Gemini\Art Restoration\art-restoration\weights\GFPGANv1.4.pth
+2026-10-03 15:59:08,331 - models.gfpgan_model - INFO - Initializing GFPGANer...
+2026-10-03 15:59:11,590 - models.model_manager - INFO - GFPGAN model loaded successfully.
+2026-10-03 15:59:11,590 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 15:59:14,896 - models.gfpgan_model - INFO - No faces detected in the image.
+2026-10-03 15:59:14,899 - pipeline.restoration_pipeline - INFO - GFPGAN returned no face results, using Real-ESRGAN output.
+2026-10-03 15:59:15,173 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 15:59:15] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:02:34,192 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:02:34] "GET / HTTP/1.1" 200 -
+2026-10-03 16:04:07,955 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:04:07] "GET / HTTP/1.1" 200 -
+2026-10-03 16:04:08,274 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:04:08] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 16:04:08,276 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:04:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 16:04:08,279 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:04:08] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 16:04:24,761 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 16:04:24,761 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 16:04:24,788 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 426x480 for high speed 1-pass processing
+2026-10-03 16:04:24,789 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (480, 426, 3), 'dtype': 'uint8', 'channels': 3, 'height': 480, 'width': 426}
+2026-10-03 16:04:24,820 - models.realesrgan_model - INFO - Enhancing image (426x480) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 16:05:53,640 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1920, 1704, 3)
+2026-10-03 16:05:53,772 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1920, 1704, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1920, 'width': 1704}
+2026-10-03 16:05:54,020 - pipeline.face_processing - INFO - Skin-tone heuristic: 65.6% skin pixels — likely has faces
+2026-10-03 16:05:54,144 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 16:05:54,289 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 16:06:23,335 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 16:06:27,342 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:06:27] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:06:27,386 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:06:27] "GET /api/result/aa406107-748f-48ec-830f-e4a62e7dfb58?t=1791023787352 HTTP/1.1" 200 -
+2026-10-03 16:06:54,801 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 16:06:54,801 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 16:06:54,806 - pipeline.preprocessing - INFO - Pre-scaled image from 678x452 to 480x320 for high speed 1-pass processing
+2026-10-03 16:06:54,808 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (320, 480, 3), 'dtype': 'uint8', 'channels': 3, 'height': 320, 'width': 480}
+2026-10-03 16:06:54,809 - models.realesrgan_model - INFO - Enhancing image (480x320) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 16:08:11,863 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1280, 1920, 3)
+2026-10-03 16:08:11,899 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1280, 1920, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1280, 'width': 1920}
+2026-10-03 16:08:12,003 - pipeline.face_processing - INFO - Skin-tone heuristic: 49.5% skin pixels — likely has faces
+2026-10-03 16:08:12,005 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 16:08:12,010 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 16:08:37,987 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 16:08:39,066 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:08:39] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:08:39,091 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:08:39] "GET /api/result/56b04f35-4e7c-47cc-9cd9-7d177d72c4c9?t=1791023919072 HTTP/1.1" 200 -
+2026-10-03 16:13:10,930 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 16:13:10,930 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 16:13:10,930 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (200, 300, 3), 'dtype': 'uint8', 'channels': 3, 'height': 200, 'width': 300}
+2026-10-03 16:13:10,932 - models.realesrgan_model - INFO - Enhancing image (300x200) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 16:13:29,340 - models.realesrgan_model - INFO - Enhancement complete — output shape: (800, 1200, 3)
+2026-10-03 16:13:29,344 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (800, 1200, 3), 'dtype': 'uint8', 'channels': 3, 'height': 800, 'width': 1200}
+2026-10-03 16:13:29,417 - pipeline.face_processing - INFO - Skin-tone heuristic: 61.6% skin pixels — likely has faces
+2026-10-03 16:13:29,418 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 16:13:29,420 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 16:13:33,384 - models.gfpgan_model - INFO - No faces detected in the image.
+2026-10-03 16:13:33,387 - pipeline.restoration_pipeline - INFO - GFPGAN returned no face results, using Real-ESRGAN output.
+2026-10-03 16:13:34,523 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:13:34] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:19:28,968 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:19:28] "GET / HTTP/1.1" 200 -
+2026-10-03 16:22:08,334 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:22:08] "GET / HTTP/1.1" 200 -
+2026-10-03 16:22:08,424 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:22:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2026-10-03 16:22:08,442 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:22:08] "[36mGET /static/samples/sample_art.jpg HTTP/1.1[0m" 304 -
+2026-10-03 16:22:08,444 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:22:08] "[36mGET /static/js/app.js HTTP/1.1[0m" 304 -
+2026-10-03 16:22:19,333 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 16:22:19,333 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (1200, 1067, 4), 'dtype': 'uint8', 'channels': 4, 'height': 1200, 'width': 1067}
+2026-10-03 16:22:19,342 - pipeline.preprocessing - INFO - Pre-scaled image from 1067x1200 to 426x480 for high speed 1-pass processing
+2026-10-03 16:22:19,342 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (480, 426, 3), 'dtype': 'uint8', 'channels': 3, 'height': 480, 'width': 426}
+2026-10-03 16:22:19,347 - models.realesrgan_model - INFO - Enhancing image (426x480) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 16:23:37,266 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1920, 1704, 3)
+2026-10-03 16:23:37,313 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1920, 1704, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1920, 'width': 1704}
+2026-10-03 16:23:37,456 - pipeline.face_processing - INFO - Skin-tone heuristic: 65.6% skin pixels — likely has faces
+2026-10-03 16:23:37,459 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 16:23:37,476 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 16:24:05,334 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 16:24:09,263 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:24:09] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:24:09,301 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:24:09] "GET /api/result/16ac5259-636e-4b81-bcb3-2b4a226eaeb2?t=1791024849275 HTTP/1.1" 200 -
+2026-10-03 16:24:40,474 - pipeline.restoration_pipeline - INFO - Decoded image: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 16:24:40,474 - pipeline.preprocessing - INFO - Image info before preprocessing: {'shape': (452, 678, 3), 'dtype': 'uint8', 'channels': 3, 'height': 452, 'width': 678}
+2026-10-03 16:24:40,478 - pipeline.preprocessing - INFO - Pre-scaled image from 678x452 to 480x320 for high speed 1-pass processing
+2026-10-03 16:24:40,478 - pipeline.preprocessing - INFO - Image info after preprocessing: {'shape': (320, 480, 3), 'dtype': 'uint8', 'channels': 3, 'height': 320, 'width': 480}
+2026-10-03 16:24:40,479 - models.realesrgan_model - INFO - Enhancing image (480x320) with Real-ESRGAN (tile=0, outscale=4)...
+2026-10-03 16:25:53,200 - models.realesrgan_model - INFO - Enhancement complete — output shape: (1280, 1920, 3)
+2026-10-03 16:25:53,234 - pipeline.restoration_pipeline - INFO - Real-ESRGAN enhancement complete (outscale=4): {'shape': (1280, 1920, 3), 'dtype': 'uint8', 'channels': 3, 'height': 1280, 'width': 1920}
+2026-10-03 16:25:53,334 - pipeline.face_processing - INFO - Skin-tone heuristic: 49.5% skin pixels — likely has faces
+2026-10-03 16:25:53,337 - pipeline.restoration_pipeline - INFO - Face detection: faces found
+2026-10-03 16:25:53,347 - models.gfpgan_model - INFO - Enhancing faces with GFPGAN...
+2026-10-03 16:26:18,515 - pipeline.restoration_pipeline - INFO - GFPGAN face restoration applied successfully.
+2026-10-03 16:26:19,531 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:26:19] "POST /api/restore HTTP/1.1" 200 -
+2026-10-03 16:26:19,552 - werkzeug - INFO - 127.0.0.1 - - [03/Oct/2026 16:26:19] "GET /api/result/4766e4a6-56b6-474e-b15f-fab2793ecee2?t=1791024979536 HTTP/1.1" 200 -

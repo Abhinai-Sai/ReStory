@@ -1,0 +1,1 @@
+class SRGANModel: pass
