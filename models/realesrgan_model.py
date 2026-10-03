@@ -80,8 +80,8 @@ class RealESRGANWrapper:
         model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4)
 
         half_precision = self.device.type == 'cuda'
-        # On GPU, use 512 tile size. On CPU, use 256 tile size to restrict RAM usage under 30 MB.
-        tile_size = 512 if self.device.type == 'cuda' else 256
+        # On GPU, use 512 tile size. On CPU, use 0 (untiled single pass) for maximum 1-pass speed under 15s.
+        tile_size = 512 if self.device.type == 'cuda' else 0
 
         logger.info(f"Initializing RealESRGANer (half={half_precision}, tile={tile_size}, device={self.device})...")
         try:
@@ -107,11 +107,14 @@ class RealESRGANWrapper:
             raise RuntimeError("Real-ESRGAN model is not loaded.")
 
         h, w = img_bgr.shape[:2]
-        # Always enforce tile_size >= 256 on CPU to avoid OOM memory spikes
-        if self.device.type == 'cpu' and getattr(self.upsampler, 'tile_size', 0) == 0:
-            self.upsampler.tile_size = 256
+        # On CPU, if image exceeds 800px, use tile=512 to protect RAM; otherwise untiled (0) for 1-pass speed
+        if self.device.type == 'cpu':
+            if h > 800 or w > 800:
+                self.upsampler.tile_size = 512
+            else:
+                self.upsampler.tile_size = 0
 
-        tile_used = getattr(self.upsampler, 'tile_size', 256)
+        tile_used = getattr(self.upsampler, 'tile_size', 0)
         logger.info(f"Enhancing image ({w}x{h}) with Real-ESRGAN (tile={tile_used}, outscale={outscale})...")
         try:
             output, _ = self.upsampler.enhance(img_bgr, outscale=outscale)
