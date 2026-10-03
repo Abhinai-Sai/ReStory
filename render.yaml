@@ -6,6 +6,6 @@ services:
     startCommand: "gunicorn --config gunicorn.conf.py app:app"
     envVars:
       - key: PYTHON_VERSION
-        value: 3.11.9
+        value: 3.13.2
       - key: WEB_CONCURRENCY
         value: "1"

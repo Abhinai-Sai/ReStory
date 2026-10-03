@@ -2,18 +2,25 @@
 import os
 import sys
 
-site_packages = None
+site_packages_list = []
 for p in sys.path:
-    if 'site-packages' in p and os.path.isdir(p):
-        site_packages = p
-        break
+    if 'site-packages' in p and os.path.isdir(p) and p not in site_packages_list:
+        site_packages_list.append(p)
 
-if not site_packages:
-    print("ERROR: Could not find site-packages directory")
-    sys.exit(1)
+# Also check common Python 3.13 location
+py313_sp = r'C:\Users\Abhinai\AppData\Local\Programs\Python\Python313\Lib\site-packages'
+if os.path.isdir(py313_sp) and py313_sp not in site_packages_list:
+    site_packages_list.append(py313_sp)
 
-basicsr_dir = os.path.join(site_packages, 'basicsr')
-print(f"Creating basicsr shim at: {basicsr_dir}")
+# Also write to local project directory as a fallback
+local_dir = os.path.dirname(os.path.abspath(__file__))
+if local_dir not in site_packages_list:
+    site_packages_list.append(local_dir)
+
+print(f"Creating basicsr shim across {len(site_packages_list)} location(s): {site_packages_list}")
+
+for site_packages in site_packages_list:
+    basicsr_dir = os.path.join(site_packages, 'basicsr')
 
 dirs_to_create = [
     basicsr_dir,
